@@ -8,7 +8,7 @@ import Page_movie from './Pages/page_movie';
 import Page_recently from './Pages/page_recently';
 import MyList from './Pages/MyList';
 import Footer from './Pages/footer';
-
+import Search from './Components/search';
 // import Movies from './Components/Movies';
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <Route path='/Movies' element={<Page_movie/>} /> 
           <Route path='/Recently-Added' element={<Page_recently />}/>
           <Route path='/my-list' element={<MyList />}/>
+          <Route path='/Search' element={<Search />} />
        </Routes>
        </Router>
 <Footer />

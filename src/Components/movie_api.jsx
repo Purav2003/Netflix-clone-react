@@ -1,6 +1,5 @@
-import Page from '../Pages/page'
 import Carousel from 'better-react-carousel'
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import * as icons from 'react-icons/ai'
 import '../index.css'
 
@@ -18,11 +17,12 @@ const getFavoritesFromLocalStorage = () => {
 }
 
 
-const Trial = () => {
+const Movie_api = () => {
+
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
-
+  const [searchTerm,setSearchTerm]=useState('')
   let genre = (localStorage.getItem('genre'))
   genre = JSON.parse(localStorage.getItem('genre'))
   let page = (localStorage.getItem('page'))
@@ -103,18 +103,15 @@ const Trial = () => {
     else {
       alert('You Can Only Add 15 Movies/Series To The Favorites')
     }
+    document.getElementById("hello").innerHTML = (`
+    <h1>Added</h1>
+    `)
+
   }
-  const MyDot = () => (
-    <span
-      style={{
-        display: 'inline-block !important',
-        background: 'red'
-      }}
-    ></span>
-  )
 
 
   return (
+    
     <div className='pop-movie-title' id="pop-movie-title">
       <Carousel cols={5} rows={1} loop >
         {movies.map((movie) => {
@@ -138,8 +135,9 @@ const Trial = () => {
       <div id='demo'>
 
       </div>
+
     </div>
   )
 }
 
-export default Trial
+export default Movie_api

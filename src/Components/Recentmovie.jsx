@@ -1,5 +1,5 @@
 // import Movies from '../Components/Movies'
-import Movie_api from './moviee_api'
+import Movie_api from './movie_api'
 const Recentmovie = () => {
     const IMG = 'https://image.tmdb.org/t/p/w500/'
     const page="4"

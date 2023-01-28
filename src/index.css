@@ -261,3 +261,29 @@ body {
 .title{
   margin-left: 65px !important;
 }
+
+.search-input{
+  border: none !important;
+  background: none !important;
+  border-radius: 0px !important;
+  border-bottom: solid 1px #E50914 !important;
+  outline: none !important;
+  color: #fff;
+}
+
+.search-input::placeholder{
+  font-size: 14px;
+}
+.search-input:focus{
+
+  outline: none !important;
+  /* border: none !important; */
+}
+.button-search{
+  background: none !important;
+  border: none !important;
+}
+
+.icons-search{
+  color: white !important;
+}

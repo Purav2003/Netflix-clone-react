@@ -71,11 +71,11 @@ function My_list() {
                       
 {
           
-            favoritesmovie.length>0?<div className='title-list'><h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
+           <div className='title-list'><h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
             <Carousel cols={5} rows={3}>
                 {
-                favoritesmovie.map((movie) => {
-                    const { poster_path, id } = movie
+                favoritesmovie.map((moviea) => {
+                    const { poster_path, id } = moviea
                     return <Carousel.Item>
                         <div className='card-img-top'>
                             <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a></div>
@@ -84,8 +84,7 @@ function My_list() {
                 })
                
             }
-            </Carousel></div>
-             :<div>
+            </Carousel>
              <br></br><br></br><center><h3 className='text-white'>You don't have any saved movie/series<br></br><br></br></h3></center>
              </div>
           
