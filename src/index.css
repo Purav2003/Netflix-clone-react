@@ -1,0 +1,268 @@
+* {
+  font-family: 'Netflix Sans Light';
+}
+
+.font {
+  font-weight: 500 !important;
+  /* color: red !important; */
+}
+
+
+.demo {
+  display: flex !important;
+  margin-left: 100px !important;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.nav-link {
+  color: #fff !important;
+  letter-spacing: 1px !important;
+  font-weight: 100 !important;
+  font-size: 16px !important;
+  margin-left: 20px !important;
+}
+
+.navbar {
+  background: #000 !important;
+  /* opacity: 0.1 !important; */
+  backdrop-filter: blur(100px) !important;
+}
+
+body {
+  background: #000 !important;
+}
+
+.card {
+  background: none !important;
+}
+
+.container {
+  width: 100% !important;
+}
+
+.grid {
+  color: #fff !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.icons-search {
+  font-size: 15px !important;
+  width: 25px !important;
+  height: 25px !important;
+  font-weight: 700 !important;
+}
+
+@media screen and (min-width:900px) {
+
+
+  .stt {
+    margin-bottom: 8vw !important;
+    opacity: 1;
+
+    width: 600px !important;
+    margin-left: -15vw !important;
+  }
+
+
+  .title-slide {
+    margin-left: -18vw;
+    font-weight: 500;
+    font-family: 38px !important;
+    font-family: 'Netflix Sans' !important;
+  }
+
+  .title-slide-1 {
+    margin-left: -10vw !important;
+    font-size: 14px !important;
+    font-weight: 400;
+
+    color: #a3a3a3 !important;
+  }
+
+
+  .title-slide-1 a {
+    border: 1px solid #a3a3a3;
+    padding: 3px !important;
+  }
+
+  .title-slide-2 {
+    font-size: 16px !important;
+    text-align: justify;
+    margin-left: 5vw !important;
+    width: 400px !important;
+  }
+
+  .title-slide-3 {
+    margin-left: -4vw;
+    font-size: 16px !important;
+  }
+
+  .title-slide-3 a,.title-slide-3-1 a {
+    color: #a3a3a3 !important;
+  }
+
+  .title-slide-4 {
+    margin-left: -19vw;
+    font-size: 16px !important;
+  }
+
+  .title-slide-4 a,.title-slide-4-1 a {
+    color: #a3a3a3 !important;
+  }
+  .stt-1{
+    width: 500px !important;
+    margin-bottom:7vw !important;
+    margin-left: -15vw !important;
+  }
+  .stt-1 h3{
+    text-align: left !important;
+    margin-left: 4.5vw !important;
+  }
+  .stt-1 img{
+    margin-left: 4.5vw !important;
+  }
+
+  .title-slide-1-1 a {
+    border: 1px solid #a3a3a3;
+    padding: 3px !important;
+  }
+  .stt-2{
+    background: linear-gradient(to left,transparent,black);
+    
+  }
+}
+
+.pop-movie:hover{
+  border: 2px solid #fff !important;
+}
+.pop-movie{
+  height: 300px !important;
+  width: 220px !important;
+  /* object-fit:cover; */
+
+}
+.pop-movie-title{
+  margin-left: 3vw !important;
+}
+.navbar {
+  box-shadow: none !important;
+  /* background: none !important; */
+}
+
+@font-face {
+  font-family: 'Benguiat';
+  font-style: normal;
+  font-weight: bolder;
+  src: local('Benguiat'), url('benguiat_[allfont.net].woff') format('woff');
+}
+
+.nav-right{
+  font-size: 16px !important;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000; 
+}
+::-webkit-scrollbar-thumb {
+  background: #E50914; 
+  border-radius: 13px !important;
+}
+
+.pop-movie{
+  border-radius: 5px !important ;
+}
+
+.navbar-brand{
+  margin-left: 3vw;
+}
+
+.text-reset{
+  font-size: 14px !important;
+  color: #a3a3a3 !important;
+}
+
+.footer-1{
+  margin-left: 10.5vw !important;
+  color: #a3a3a3 !important;
+}
+
+.data h6{
+  color: #a3a3a3 !important;
+}
+
+#demo{
+  color: #fff !important;
+}
+
+.button-like{
+  position:relative;
+  top: -290px;
+  left: 147px;
+  background: #E50914 !important;
+}
+
+.iconsize{
+  width: 22px !important;
+  height: 22px !important;
+}
+
+
+.okk{
+  color: #fff;
+}
+
+.nookk{
+  color: gray !important;
+}
+
+.title-list{
+  margin-left: 3vw !important;
+}
+
+.carousel.carousel-slider {
+  overflow: inherit;
+}
+
+.carousel .control-next.control-arrow, .carousel .control-next.control-arrow:hover{
+  background-color: transparent;
+  right: -146px;
+}
+
+.carousel .control-prev.control-arrow, .carousel .control-prev.control-arrow:hover {
+  background-color: transparent;
+  left: -146px;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  opacity: 1;
+}
+
+.carousel .control-next.control-arrow:before {
+  content: '';
+  border: solid #0135AD;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 14px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.carousel .control-prev.control-arrow:before {
+  content: '';
+  border: solid #0135AD;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 14px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
