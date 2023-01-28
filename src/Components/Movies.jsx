@@ -8,9 +8,7 @@ const Movies = () => {
     localStorage.setItem('genre',JSON.stringify(genre))
         return (
                 <div>
-                    < Movie_api/>
-
-                  
+                    < Movie_api/>                  
                 </div>
 
         )
