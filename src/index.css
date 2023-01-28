@@ -204,16 +204,18 @@ body {
   color: #fff !important;
 }
 
-.button-like{
+.btn-danger{
   position:relative;
   top: -290px;
-  left: 147px;
+  left: 158px;
   background: #E50914 !important;
 }
 
 .iconsize{
-  width: 22px !important;
-  height: 22px !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-left: -9px !important;
+  margin-top: -1px !important;
 }
 
 
@@ -229,40 +231,33 @@ body {
   margin-left: 3vw !important;
 }
 
-.carousel.carousel-slider {
-  overflow: inherit;
+.btn-danger{
+  border-radius: 50% !important;
+  width: 45px !important;
+  height: 45px !important;
 }
 
-.carousel .control-next.control-arrow, .carousel .control-next.control-arrow:hover{
-  background-color: transparent;
-  right: -146px;
+
+.btn-danger .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  margin-left: -50px;
+  margin-top: 15px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
 }
 
-.carousel .control-prev.control-arrow, .carousel .control-prev.control-arrow:hover {
-  background-color: transparent;
-  left: -146px;
+.btn-danger:hover .tooltiptext{
+  visibility: visible;
 }
 
-.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
-  opacity: 1;
-}
-
-.carousel .control-next.control-arrow:before {
-  content: '';
-  border: solid #0135AD;
-  border-width: 0 8px 8px 0;
-  display: inline-block;
-  padding: 14px;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.carousel .control-prev.control-arrow:before {
-  content: '';
-  border: solid #0135AD;
-  border-width: 0 8px 8px 0;
-  display: inline-block;
-  padding: 14px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+.title{
+  margin-left: 65px !important;
 }

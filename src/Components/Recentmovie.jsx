@@ -1,7 +1,6 @@
 // import Movies from '../Components/Movies'
-import Tv_api from "./tv_api"
-
-const Tv = () => {
+import Movie_api from './moviee_api'
+const Recentmovie = () => {
     const IMG = 'https://image.tmdb.org/t/p/w500/'
     const page="4"
     localStorage.setItem('page',JSON.stringify(page))
@@ -9,7 +8,7 @@ const Tv = () => {
     localStorage.setItem('genre',JSON.stringify(genre))
         return (
                 <div>
-                    <Tv_api />
+                    <Movie_api />
 
                   
                 </div>
@@ -17,4 +16,4 @@ const Tv = () => {
         )
 
 }
-export default Tv
+export default Recentmovie

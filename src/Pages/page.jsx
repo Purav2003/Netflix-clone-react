@@ -1,16 +1,14 @@
 // import Movies from '../Components/Movies'
-import Navbar from './Navbar'
 import Movies from '../Components/Movies'
 import HomePageSlide from './home-page-slide'
 import Tv from '../Components/Tv'
-import Footer from './footer'
 const Page = () => {
-        console.log(window.location.href)
-
         return (
                 <div>
                         <HomePageSlide />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
                         <Movies />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Tv<br /></h5>
                         <Tv />
                 </div>
 

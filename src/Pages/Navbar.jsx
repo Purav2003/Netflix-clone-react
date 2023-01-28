@@ -1,7 +1,6 @@
 import netflix from "./images/netflix-avatar.png"
 import logo from "./images/netflix-logo.png"
 import * as icons from 'react-icons/fi';
-import Movies from "../Components/Movies";
 const Navbar = () => {
   const firstnav = () => {
     const change='http://localhost:3000/'

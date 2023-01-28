@@ -1,18 +1,19 @@
 // import Movies from '../Components/Movies'
-import Navbar from './Navbar'
 import Page_Slides_movie from './page_slides_movie'
-import Recentmovies from '../Components/Recentmovies'
 import Trendingmovies from '../Components/Trendingmovies'
-import Popularmovies from '../Components/Popularmovies'
-import Footer from './footer'
+import Recentmovie from '../Components/Recentmovie'
+import Popularmovie from '../Components/Popularmovie'
 const Page_movie  = () => {
 
         return (
                 <div>
                         <Page_Slides_movie />
                         <Trendingmovies />
-<Popularmovies />
-                <Recentmovies />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Popular On Netflix<br /></h5>
+                        <Popularmovie />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Recent On Netflix<br /></h5>
+
+                        <Recentmovie />
                 </div>
 
         )

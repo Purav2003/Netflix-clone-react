@@ -1,18 +1,18 @@
 // import Movies from '../Components/Movies'
-import Navbar from './Navbar'
 import Page_Slides from './page_slides'
-import RecentTvshows from '../Components/RecentTvshows'
 import TrendingTvshows from '../Components/TrendingTv'
-import PopularTvshows from '../Components/PopularTvshows'
-import Footer from './footer'
+import Populartv from '../Components/Populartv'
+import RecentTv from '../Components/RecentTv'
 const Page_tv = () => {
 
         return (
                 <div>
                         <Page_Slides />
                         <TrendingTvshows />
-                        <PopularTvshows />
-                        <RecentTvshows />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Popular Tv<br /></h5>
+                        <Populartv />
+                        <h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>Recent Tv<br /></h5>
+                        <RecentTv />
 
                 </div>
 
