@@ -85,7 +85,7 @@ function My_list() {
                
             }
             </Carousel>
-             <br></br><br></br><center><h3 className='text-white'>You don't have any saved movie/series<br></br><br></br></h3></center>
+             <br></br><br></br><center><h3 className='text-white fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center>
              </div>
           
         }

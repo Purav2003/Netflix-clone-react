@@ -180,12 +180,12 @@ const Search = () => {
       {movies.length > 0 ?
         <Carousel cols={5} rows={a}  >
           {movies.map((movie) => {
-            const { poster_path, id } = movie
+            const { poster_path, id ,title:Title} = movie
             return <Carousel.Item>
 
-              <div>
+              <div className="okkk">
 
-                <a href="#demo"><img width="100%" onClick={() => selectMovie(id)}  src={IMG + poster_path} className='pop-movie' /></a>
+                <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
                 <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
                 </button>
 

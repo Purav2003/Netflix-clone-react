@@ -1,5 +1,5 @@
 // import Movies from '../Components/Movies'
-import Movie_api from "./tv_api"
+import Movie_api from "./movie_api"
 const Popularmovie = () => {
     const IMG = 'https://image.tmdb.org/t/p/w500/'
     const page="7"
