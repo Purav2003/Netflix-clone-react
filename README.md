@@ -1,4 +1,6 @@
-<h2>Home Screen </h2>
+<h1>Screenshots</h1>
+
+<h2>Home Screen</h2>
 
 ![1674993690105](image/README/1674993690105.png)
 
