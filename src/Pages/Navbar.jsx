@@ -76,16 +76,16 @@ const Navbar = () => {
               <a href="/" className={`nav-link ${firstnav()}`}>Home</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${secondnav()}`} href="Tv">Tv Shows</a>
+              <a className={`nav-link ${secondnav()}`} href="/Tv">Tv Shows</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${thirdnav()}`} href="Movies">Movies</a>
+              <a className={`nav-link ${thirdnav()}`} href="/Movies">Movies</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${fournav()}`} href="Recently-Added">Recently Added</a>
+              <a className={`nav-link ${fournav()}`} href="/Recently-Added">Recently Added</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${fivenav()}`} href="my-list">My List</a>
+              <a className={`nav-link ${fivenav()}`} href="/my-list">My List</a>
             </li>
           </ul>
         </div>

@@ -15,9 +15,20 @@ const getFavoritesFromLocalStorage = () => {
   }
   return favoritesmovie
 }
+const getSelectedFromLocalStorage = () => {
+  let selectedmovie = localStorage.getItem('selectedMovie');
+  if (selectedmovie) {
+    selectedmovie = JSON.parse(localStorage.getItem('selectedMovie'))
+  }
+  else {
+    selectedmovie = []
+  }
+
+  return selectedmovie
+}
 function TrendingTvshows() {
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null)
+    const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
     const [loading,setLoading] = useState(false)
     const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
 
@@ -35,49 +46,15 @@ function TrendingTvshows() {
     }, [])
 
     const selectMovie = (id) => {
-        let meal;
-        meal = movies.find((meal) => meal.id === id)
-        setSelectedMovie(meal)
-        console.log(selectedMovie)
-        const { name: Title, poster_path: data, overview: over, first_air_date: rel, vote_average: voteavg } = selectedMovie
-        if (Title) {
-            document.getElementById("demo").innerHTML = (`<br /><br /><br /><br />
-            <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-3">
-                <img
-                  src=${IMG + data}
-                  alt="Trendy Pants and Shoes"
-                  class="img-fluid rounded-start"
-                  width="250"
-                />
-               
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                <div style="justify-content: space-between">
-               
-                  <h5 class="card-title">${Title}</h5>
-                 
-                  <a href="#pop-movie-title"><p onClick={document.getElementById("demo").innerHTML=""}> Close</p></a>        
-                  </div>
-                  <p class="card-text"><br>
-                    ${over}
-                  </p>
-                  <p class="card-text"><br>
-                  Release Date: ${rel}
-                </p>
-                <p class="card-text"><br>
-                Total Votes: ${voteavg}
-              </p>
-                 
-                </div>
-              </div>
-            </div>
-          </div>
- 
-       `)
-        }
+      const mov=[];
+      let mov1=movies.find((mov) => mov.id === id)
+      mov.push(mov1)
+      console.log(mov)
+      setSelectedMovie(mov)
+      localStorage.setItem('selectedMovie', JSON.stringify(mov))
+      localStorage.setItem('similar',JSON.stringify(id))
+      window.location.replace('http://localhost:3000/details/tv');
+      
     }
     const addToFavorites = (id) =>{
       if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
@@ -108,7 +85,7 @@ function TrendingTvshows() {
                     const { poster_path, id } = movie
                     return <Carousel.Item>
                         <div className='card-img-top' key="id">
-                            <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
+                            <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' />
                             <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
                             <span class="tooltiptext">Add To My List</span></button>         
 </div>

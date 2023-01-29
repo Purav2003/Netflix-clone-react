@@ -8,6 +8,8 @@ import Page_recently from './Pages/page_recently';
 import MyList from './Pages/MyList';
 import Footer from './Pages/footer';
 import Search from './Components/search';
+import Moviedetail from './Components/moviedetails';
+import Tvdetail from './Components/tvdetails';
 // import Movies from './Components/Movies';
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path='/Movies' element={<Page_movie/>} /> 
           <Route path='/Recently-Added' element={<Page_recently />}/>
           <Route path='/my-list' element={<MyList />}/>
+          <Route path='/details' element={<Moviedetail />}/>
+          <Route path='/details/tv' element={<Tvdetail />}/>
           <Route path='/Search' element={<Search />} />
        </Routes>
        </Router>

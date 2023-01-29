@@ -296,21 +296,17 @@ body {
   width: 70px !important;
 }
 
-.button-remove{
-  height: 53px !important;
-  margin-top: 35px !important;
-  color: #fff !important;
-  font-size: 18px !important;
-  border: 1px solid #fff !important;
-  font-weight: 700 !important;
-  width: 145px !important;
-  margin-left: -50px !important;
-  font-family: 'Netflix Sans Light' !important;
-  text-transform: capitalize !important;
-}
 
 .button-remove:hover{
   background: #E50914 !important;
   border: solid 1px #E50914 !important;
   color: #fff !important;
+}
+
+.movie-details{
+  margin-left: 4vw !important;
+}
+
+.card-img-top:hover{
+  cursor: pointer;
 }

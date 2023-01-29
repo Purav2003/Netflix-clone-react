@@ -2,9 +2,19 @@
 import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
+const getSelectedFromLocalStorage = () => {
+  let selectedmovie = localStorage.getItem('selectedMovie');
+  if (selectedmovie) {
+    selectedmovie = JSON.parse(localStorage.getItem('selectedMovie'))
+  }
+  else {
+    selectedmovie = []
+  }
 
+  return selectedmovie
+}
 function My_list() {
-    const [selectedMovie, setSelectedMovie] = useState(null)
+    const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
 
     let favoritesmovie = localStorage.getItem('favoritesMovie');
 
@@ -18,52 +28,32 @@ function My_list() {
 
     const IMG = 'https://image.tmdb.org/t/p/w500/'
     const selectMovie = (id) => {
-        let meal;
-        meal = favoritesmovie.find((meal) => meal.id === id)
-        setSelectedMovie(meal)
-        console.log(selectedMovie)
-        const { title: Title, poster_path: data, overview: over, release_date: rel, vote_average: voteavg } = selectedMovie
-        if (Title) {
-            document.getElementById("demo").innerHTML = (`<br /><br /><br /><br />
-            <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-3">
-                <img
-                  src=${IMG + data}
-                  alt="Trendy Pants and Shoes"
-                  class="img-fluid rounded-start"
-                  width="250"
-                />
-               
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                <div style="justify-content: space-between">
-               
-                  <h5 class="card-title">${Title}</h5>
-                 
-                  <a href="/"><p onClick={document.getElementById("demo").innerHTML=""}> Close</p></a>        
-                  </div>
-                  <p class="card-text"><br>
-                    ${over}
-                  </p>
-                  <p class="card-text"><br>
-                  Release Date: ${rel}
-                </p>
-                <p class="card-text"><br>
-                Total Votes: ${voteavg}
-              </p>
-                 
-                </div>
-              </div>
-            </div>
-          </div>
- 
-       `)
+      const mov=[];
+      let mov1=favoritesmovie.find((mov) => mov.id === id)
+      mov.push(mov1)
+      console.log(mov)
+      setSelectedMovie(mov)
+      
+      localStorage.setItem('selectedMovie', JSON.stringify(mov))
+      localStorage.setItem('similar',JSON.stringify(id))
+      mov.map((item)=>{
+        const {title:Title}=item
+        if(Title){
+          window.location.replace('http://localhost:3000/details');
+          
         }
-        
-    }
-    const removeFromFavorites = (id) => {
+       
+      })
+      mov.map((item)=>{
+        const {title:Title}=item
+        if(!Title){
+          window.location.replace('http://localhost:3000/details/tv');        
+        }
+       
+      })
+      }
+    
+    const removeFromFavorites = (id ) => {
         const updatedFavorites = favoritesmovie.filter((meal) => meal.id != id);
         favoritesmovie=updatedFavorites
         localStorage.setItem('favoritesMovie',JSON.stringify(favoritesmovie))
@@ -77,13 +67,13 @@ const remove = () =>{
 }
     return (
         <section>
-                      
+                      <br></br>
 {
           
            <div className='title-list'>
           <div className='row'>
-        <h5 className='text-white m-4 col-md-10' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
-      {favoritesmovie.length>0?<button className='col-md-1 btn button-remove' onClick={remove}>Remove All</button>:<h1></h1>}</div>
+        <h5 className='text-white m-4 col-md-8' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
+      {favoritesmovie.length>0?<button className='col-md-2 btn btn-outline-danger m-4' onClick={remove}>Remove All</button>:<h1></h1>}</div>
            {
             favoritesmovie.length>0?
             <Carousel cols={5} rows={3}>
@@ -92,7 +82,7 @@ const remove = () =>{
                     const { poster_path, id } = moviea
                     return <Carousel.Item>
                         <div className='card-img-top'>
-                            <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a></div>
+                            <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></div>
                             <a href='/my-list'><button type="button" className="button-like btn btn-danger" onClick={() => removeFromFavorites(id)}><icons.AiOutlineDelete className='iconsize'></icons.AiOutlineDelete></button>         </a>
                     </Carousel.Item>
                 })
@@ -107,9 +97,7 @@ const remove = () =>{
 
           
         }
-          <div id="demo">
-                
-                </div>
+      
         </section>
     )
 
