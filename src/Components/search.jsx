@@ -29,8 +29,6 @@ const Search = () => {
   }
   var newStr = search.split("");
   for (var i = 0; i < newStr.length; ++i) {
-    // Changing the ith character
-    // to '-' if it's a space.
     if (newStr[i] === " ") {
       newStr[i] = "-";
     }
@@ -184,15 +182,16 @@ const Search = () => {
 
   }
   let a=0
-  movies.length<20? a=Math.floor(movies.length/5)+1:a=4
+  movies.length/20? a=movies.length/5:a=Math.floor(movies.length/5)+1
   console.log(a)
   let b=0
   tv.length<20?b=Math.floor(tv.length/5)+1 :b=4
   console.log(movies)
+
   return (
     <div className='pop-movie-title' id="pop-movie-title">
       <br></br><br></br><br></br>
-      <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>
+      <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
       {movies.length > 0 ?
         <Carousel cols={5} rows={a}  >

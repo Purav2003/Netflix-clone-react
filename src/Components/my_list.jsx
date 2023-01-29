@@ -69,14 +69,21 @@ function My_list() {
         localStorage.setItem('favoritesMovie',JSON.stringify(favoritesmovie))
     }
 
+const remove = () =>{
+  const updatedFavorites=[]
+  localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+  window.location.replace('http://localhost:3000/my-list');
 
+}
     return (
         <section>
                       
 {
           
-           <div className='title-list'><h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
-
+           <div className='title-list'>
+          <div className='row'>
+        <h5 className='text-white m-4 col-md-10' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
+      {favoritesmovie.length>0?<button className='col-md-1 btn button-remove' onClick={remove}>Remove All</button>:<h1></h1>}</div>
            {
             favoritesmovie.length>0?
             <Carousel cols={5} rows={3}>
