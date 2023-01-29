@@ -92,10 +92,10 @@ function Details() {
                         <img src={IMG + poster_path} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
                             <h1 style={{ 'font-weight': '700', 'color': '#E50914','font-family':'Netflix Sans' }}>{title}{name}</h1><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '25px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '25px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '25px', 'textAlign': 'justify' ,'font-family':'Netflix Sans','font-weight':'100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average} / 10</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '25px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>
+                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
+                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
+                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify' ,'font-family':'Netflix Sans','font-weight':'100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average}</h5><br></br>
+                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify','font-family':'Netflix Sans','font-weight':'100'  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>
                             <div style={{ display: 'flex' }}>
                                 <div className='m-4 col-md-4'><a href='/'><button className='col-md-12 btn btn-outline-primary'>Go Home</button></a></div>
                                 <div className='m-4 col-md-4'><button type="button" className="button-like btn col-md-12 btn-outline-danger" onClick={() => addToFavorites(ID)}>Add to my list
