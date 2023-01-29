@@ -1,8 +1,8 @@
 import Carousel from 'better-react-carousel'
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import '../index.css'
-
+import gif from './loading.gif';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -18,11 +18,12 @@ const getFavoritesFromLocalStorage = () => {
 
 
 const Movie_api = () => {
-
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null)
+  const [loading,setLoading] = useState(false)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
-  const [searchTerm,setSearchTerm]=useState('')
+
+
   let genre = (localStorage.getItem('genre'))
   genre = JSON.parse(localStorage.getItem('genre'))
   let page = (localStorage.getItem('page'))
@@ -33,12 +34,18 @@ const Movie_api = () => {
   const IMG = 'https://image.tmdb.org/t/p/w500/'
 
   useEffect(() => {
+    setLoading(true);
     fetch(API_URL)
       .then((res) => res.json())
       .then(data => {
         console.log(data)
+        setLoading(false)
         setMovies(data.results)
       })
+      if(loading){
+        return <h1>sojo</h1>
+      }
+
   }, [])
 
 
@@ -47,7 +54,7 @@ const Movie_api = () => {
     meal = movies.find((meal) => meal.id === id)
     setSelectedMovie(meal)
     console.log(selectedMovie)
-    const { title: Title, poster_path: data, overview: over, release_date: rel, vote_average: voteavg } = selectedMovie
+    const {title: Title, poster_path: data, overview: over, release_date: rel, vote_average: voteavg } = selectedMovie
     if (Title) {
       document.getElementById("demo").innerHTML = (`<br /><br /><br /><br />
         <div class="card mb-3">
@@ -99,20 +106,22 @@ const Movie_api = () => {
       const updatedFavorites = [...favoritesmovie, meal]
       setFavoritesmovie(updatedFavorites)
       localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
-    }
+     }
     else {
       alert('You Can Only Add 15 Movies/Series To The Favorites')
     }
-    document.getElementById("hello").innerHTML = (`
-    <h1>Added</h1>
-    `)
 
   }
 
 
+
   return (
-    
+
     <div className='pop-movie-title' id="pop-movie-title">
+      {
+          loading?<img src={gif} className="loading"></img>
+        
+      :(<div>
       <Carousel cols={5} rows={1} loop >
         {movies.map((movie) => {
           const { poster_path, id } = movie
@@ -121,7 +130,8 @@ const Movie_api = () => {
             <div>
 
               <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
-              <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
+              <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
+                <span class="tooltiptext">Add To My List</span>
               </button>
 
             </div>
@@ -130,8 +140,7 @@ const Movie_api = () => {
           </Carousel.Item>
         })}
 
-        {/* ... */}
-      </Carousel>
+      </Carousel></div>)}
       <div id='demo'>
 
       </div>

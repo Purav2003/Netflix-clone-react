@@ -6,7 +6,6 @@ import * as icons from 'react-icons/fi';
 
 const Navbar = () => {
   const [text, setText] = useState()
-  const [updated, setUpdated] = useState(text);
   const firstnav = () => {
     const change = 'http://localhost:3000/'
     const a = window.location.href
@@ -34,14 +33,18 @@ const Navbar = () => {
     const a2 = window.location.href
     return change2 === a2 ? "okk" : "nookk"
   }
-
   const handleChange = (event) => {
     setText(event.target.value);
-    console.log(text)
-    localStorage.setItem('search', JSON.stringify(text))
-
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(text){
+      localStorage.setItem('search', JSON.stringify(text))
+      window.location.replace('http://localhost:3000/Search');
+
+    }
+}
 
   return <section >
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -87,9 +90,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="d-flex align-items-center">
+        <form onSubmit={handleSubmit}>
           <input type='text' value={text} onChange={handleChange} className="search-input" placeholder="Search Movie/Tv"></input>
-          <a className="text-white me-3" href="Search">
-            <button type="button" className="button-search"><icons.FiSearch className="icons-search"/>   </button>  </a>
+            <button type="submit" className="button-search">          <a className="text-white me-3" href="Search">
+<icons.FiSearch className="icons-search"/>  </a> </button>  
+            </form>
           <a className="text-white me-3 nav-right" href="#">
             KIDS
           </a>

@@ -5,13 +5,17 @@ import * as icons from 'react-icons/ai'
 
 function My_list() {
     const [selectedMovie, setSelectedMovie] = useState(null)
+
     let favoritesmovie = localStorage.getItem('favoritesMovie');
+
     if (favoritesmovie) {
         favoritesmovie = JSON.parse(localStorage.getItem('favoritesMovie'))
+
     }
     else {
         favoritesmovie = []
     }
+
     const IMG = 'https://image.tmdb.org/t/p/w500/'
     const selectMovie = (id) => {
         let meal;
@@ -72,6 +76,9 @@ function My_list() {
 {
           
            <div className='title-list'><h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans','margin-left':'3vw' }}><br />Your Saved Tv Or Movie</h5>
+
+           {
+            favoritesmovie.length>0?
             <Carousel cols={5} rows={3}>
                 {
                 favoritesmovie.map((moviea) => {
@@ -85,8 +92,12 @@ function My_list() {
                
             }
             </Carousel>
-             <br></br><br></br><center><h3 className='text-white fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center>
-             </div>
+             :<div>
+             <br></br><center><h3 className='text-white fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center></div>
+                       
+}             </div>
+             
+
           
         }
           <div id="demo">

@@ -289,3 +289,10 @@ body {
 }
 
 
+.loading {
+  margin-left: 47vw !important;
+  margin-top: 19vw !important;
+  height: 70px !important;
+  width: 70px !important;
+}
+

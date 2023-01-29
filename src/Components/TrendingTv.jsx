@@ -2,7 +2,8 @@ import Page from '../Pages/page'
 import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
-const API_URL = 'https://api.themoviedb.org/3/trending/tv/week?api_key=62ebf6fda469c1af3fe79388b1ce3912'
+import gif from './loading.gif';
+const API_URL = 'https://api.themoviedb.org/3/trending/tv/day?api_key=62ebf6fda469c1af3fe79388b1ce3912'
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie=localStorage.getItem('favoritesMovie');
@@ -17,15 +18,18 @@ const getFavoritesFromLocalStorage = () => {
 function TrendingTvshows() {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null)
+    const [loading,setLoading] = useState(false)
     const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
 
     const IMG = 'https://image.tmdb.org/t/p/w500/'
 
     useEffect(() => {
+      setLoading(true);
         fetch(API_URL)
             .then((res) => res.json())
             .then(data => {
                 console.log(data)
+                setLoading(false)
                 setMovies(data.results)
             })
     }, [])
@@ -95,20 +99,25 @@ function TrendingTvshows() {
     return (
         <div className='pop-movie-title' id = "pop-movie-title">
             <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}><br />Trending Now</h5>
+            {
+          loading?<img src={gif} className="loading"></img>
+        
+      :(
             <Carousel cols={5} rows={1} loop>
                 {movies.map((movie) => {
                     const { poster_path, id } = movie
                     return <Carousel.Item>
                         <div className='card-img-top' key="id">
                             <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
-                            <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>         
+                            <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
+                            <span class="tooltiptext">Add To My List</span></button>         
 </div>
 
                     </Carousel.Item>
                 })}
 
                 {/* ... */}
-            </Carousel>
+            </Carousel>)}
         
         </div>
     )

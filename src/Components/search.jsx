@@ -149,8 +149,25 @@ const Search = () => {
    `)
     }
   }
-  const addToFavorites = (id) => {
-    if (favoritesmovie.length > 0 && favoritesmovie.length < 15) {
+  const addToFavoritesTv = (id) => {
+    if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
+      const meal = tv.find((movie) => movie.id === id);
+      const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
+      if (alreadyFavorite) {
+        alert('Already Added')
+        return
+      }
+      const updatedFavorites = [...favoritesmovie, meal]
+      setFavoritesmovie(updatedFavorites)
+      localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+    }
+    else {
+      alert('You Can Only Add 15 Movies/Series To The Favorites')
+    } 
+
+  }
+  const addToFavoritesMovie = (id) => {
+    if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
       const meal = movies.find((movie) => movie.id === id);
       const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
       if (alreadyFavorite) {
@@ -186,7 +203,7 @@ const Search = () => {
               <div className="okkk">
 
                 <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
-                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
+                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesMovie(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
                 </button>
 
               </div>
@@ -210,7 +227,7 @@ const Search = () => {
               <div>
 
                 <a href="#demo"><img width="100%" onClick={() => selectTv(id)}  src={IMG + poster_path} className='pop-movie' /></a>
-                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
+                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesTv(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
                 </button>
 
               </div>

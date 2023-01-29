@@ -3,6 +3,7 @@ import Movies from '../Components/Movies'
 import HomePageSlide from './home-page-slide'
 import Tv from '../Components/Tv'
 const Page = () => {
+
         return (
                 <div>
                         <HomePageSlide />
