@@ -2,6 +2,7 @@ import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import '../index.css'
+import gif from './loading.gif';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -29,6 +30,7 @@ const Search = () => {
 
   const [movies, setMovies] = useState([]);
   const [tv, setTv] = useState([]);
+  const [loading,setLoading] = useState(false)
 
   let search = (localStorage.getItem('search'))
 
@@ -50,11 +52,13 @@ const Search = () => {
   const API_URL1 = 'https://api.themoviedb.org/3/search/tv?api_key=62ebf6fda469c1af3fe79388b1ce3912&query=' + data
 
   useEffect(() => {
+    setLoading(true);
     fetch(API_URL)
       .then((res) => res.json())
       .then(data => {
         console.log(data)
         if(movies.length<11){
+          setLoading(false)
         setMovies(data.results)
       }
       })
@@ -129,8 +133,13 @@ const Search = () => {
   console.log(movies)
 
   return (
-    <div className='pop-movie-title' id="pop-movie-title">
+    <div>
+      {
+               loading?<img src={gif} className="loading"></img>
+   
+    :<div className='pop-movie-title' id="pop-movie-title">
       <br></br><br></br><br></br>
+      
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
       {movies.length > 0 ?
@@ -181,6 +190,7 @@ const Search = () => {
 
       }
 
+    </div>}
     </div>
   )
 }

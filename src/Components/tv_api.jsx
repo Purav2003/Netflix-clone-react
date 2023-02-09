@@ -48,7 +48,7 @@ const Tv_api = () => {
   useEffect(() => {
     setLoading(true);
     fetch(API_URL)
-      .then((res) => res.json())
+      .then((res) => res.json()) 
       .then(data => {
         console.log(data)
         setLoading(false)

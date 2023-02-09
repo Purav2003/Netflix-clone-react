@@ -104,7 +104,7 @@ const Movie_api = () => {
 
             <div>
 
-              <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
+              <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' />
               <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
                 <span class="tooltiptext">Add To My List</span>
               </button>
@@ -116,9 +116,7 @@ const Movie_api = () => {
         })}
 
       </Carousel></div>)}
-      <div id='demo'>
 
-      </div>
 
     </div>
   )

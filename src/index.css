@@ -305,6 +305,8 @@ body {
 
 .movie-details{
   margin-left: 4vw !important;
+  height: 500px !important;
+  width: 27%;
 }
 
 .card-img-top:hover{
