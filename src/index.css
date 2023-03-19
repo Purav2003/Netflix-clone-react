@@ -312,3 +312,21 @@ body {
 .card-img-top:hover{
   cursor: pointer;
 }
+
+.button-like-1{
+  width: 240px !important;
+}
+
+.numbers{
+  background: red;
+  color: #fff;
+  border-radius: 50% !important;
+  font-size: 10px;
+  margin-left: 65px;
+  margin-top: -30px;
+  /* padding-top: -100px !important; */
+  /* padding: 10px 10px 10px 10px; */
+  width: 17px;
+  height: 17px;
+  text-align: center !important;
+}

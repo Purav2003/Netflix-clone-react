@@ -13,14 +13,16 @@ const Navbar = () => {
   }
   const secondnav = () => {
     const change2 = 'http://localhost:3000/Tv'
+    const change_2='http://localhost:3000/details/tv'
     const a2 = window.location.href
-    return change2 === a2 ? "okk" : "nookk"
+    return change2 === a2 ? "okk" : change_2 === a2 ? "okk": "nookk" 
 
   }
   const thirdnav = () => {
     const change = 'http://localhost:3000/Movies'
+    const change_1 = 'http://localhost:3000/details'
     const a = window.location.href
-    return change === a ? "okk" : "nookk"
+    return change === a ? "okk" : change_1 === a ? "okk" : "nookk"
   }
   const fournav = () => {
     const change2 = 'http://localhost:3000/Recently-Added'

@@ -3,6 +3,7 @@ import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import gif from './loading.gif';
+import net_no_image from './net_no_image.jpg';
 const API_URL = 'https://api.themoviedb.org/3/trending/tv/day?api_key=62ebf6fda469c1af3fe79388b1ce3912'
 
 const getFavoritesFromLocalStorage = () => {
@@ -83,9 +84,11 @@ function TrendingTvshows() {
             <Carousel cols={5} rows={1} loop>
                 {movies.map((movie) => {
                     const { poster_path, id } = movie
+                    let data=net_no_image
+                    {poster_path!==null?data=IMG + poster_path:data=data}                    
                     return <Carousel.Item>
                         <div className='card-img-top' key="id">
-                            <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' />
+                            <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
                             <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
                             <span class="tooltiptext">Add To My List</span></button>         
 </div>

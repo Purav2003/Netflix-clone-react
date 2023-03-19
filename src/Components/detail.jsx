@@ -2,6 +2,8 @@ import Carousel from 'better-react-carousel'
 import React, { useState, useEffect, useContext } from "react";
 import * as icon from 'react-icons/ai'
 import * as icons from 'react-icons/fa'
+import net_no_image from './net_no_image.jpg';
+
 
 import '../index.css'
 
@@ -28,12 +30,12 @@ const getSelectedFromLocalStorage = () => {
 
     return selectedmovie
 }
-
 function Details() {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
     const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
     const [video, setVideo] = useState([]);
+    const [added, setAdded] = useState([])
 
     let id = localStorage.getItem('similar');
     id = JSON.parse(localStorage.getItem('similar'))
@@ -54,6 +56,20 @@ function Details() {
                 console.log(data1)
                 setVideo(data1.results)
             })
+            const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
+            if (alreadyFavorite) {
+                setAdded(1)
+            }
+            else {
+                setAdded(0)
+            }
+            const handleContextmenu = e => {
+                e.preventDefault()
+            }
+            document.addEventListener('contextmenu', handleContextmenu)
+            return function cleanup() {
+                document.removeEventListener('contextmenu', handleContextmenu)
+            }
     }, [])
     let selectedmovie = localStorage.getItem('selectedMovie');
 
@@ -91,6 +107,10 @@ function Details() {
             alert('You Can Only Add 15 Movies/Series To The Favorites')
         }
     }
+    const removeFromFavorites = (id) => {
+        const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
+        localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+    }
     const YT = 'https://www.youtube.com/watch?v='
     const videolink = () => {
         let vide = []
@@ -113,9 +133,11 @@ function Details() {
         {
             selectedmovie.map((moviea) => {
                 const { name, poster_path, id: ID, title, overview, release_date, first_air_date, vote_average, popularity } = moviea
+                let data=net_no_image
+                {poster_path!==null?data=IMG + poster_path:data=data}
                 return <div>
                     <div className="row col-md-12" key="ID">
-                        <img src={IMG + poster_path} className='col-md-3 movie-details'></img>
+                        <img src={data} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
                             <h1 style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Netflix Sans' }}>{title}{name}</h1><br></br>
                             <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
@@ -123,9 +145,19 @@ function Details() {
                             <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average}</h5><br></br>
                             <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>
                             <div style={{ display: 'flex' }}>
-                                <div className='m-4 col-md-4'><button className='col-md-12 btn btn-outline-primary' onClick={videolink}><icons.FaPlay className='m-1'></icons.FaPlay>&nbsp;&nbsp;Watch Trailer</button></div>
-                                <div className='m-4 col-md-4'><button type="button" className="button-like btn col-md-12 btn-outline-danger" onClick={() => addToFavorites(ID)}><icons.FaPlus className='m-1'></icons.FaPlus>&nbsp;&nbsp;Add to my list
-                                </button>   </div>
+                                <div className='m-4 col-md-4'><button className='button-like-1 col-md-12 btn btn-outline-primary' onClick={videolink}><icons.FaPlay className='m-1'></icons.FaPlay>&nbsp;&nbsp;Watch Trailer</button></div>
+                                {added == 1 ?
+                                    <div>
+                                        <div className='m-4 col-md-12'><a href='/details/tv'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-success" onClick={() => removeFromFavorites(ID)}><icons.FaCheck className='m-1'></icons.FaCheck>&nbsp;&nbsp;Added To My List
+                                        </button></a></div>
+                                    </div>
+                                    :
+                                    <div>
+                                        <div className='m-4 col-md-12'><a href='/details/tv'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-danger" onClick={() => addToFavorites(ID)}><icons.FaPlus className='m-1'></icons.FaPlus>&nbsp;&nbsp;Add To My List
+                                        </button></a>   </div>
+                                    </div>
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -133,23 +165,28 @@ function Details() {
             })}
         <div className='pop-movie-title' >       <br></br><br></br>
             <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}>Similar  On Netflix<br /></h5>
-
+            {movies.length>1?
             <Carousel cols={5} rows={1} loop>
                 {
                     movies.map((movie) => {
                         const { poster_path, id } = movie
+                        let data=net_no_image
+                        {poster_path!==null?data=IMG + poster_path:data=data}                        
                         return <Carousel.Item>
                             <div className='card-img-top' key="id">
-                                <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' />
+                                <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
                                 <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icon.AiOutlinePlus className='iconsize' ></icon.AiOutlinePlus>
                                     <span class="tooltiptext">Add To My List</span></button>
 
                             </div>
 
                         </Carousel.Item>
-                    })}
+                       
+                    }
+                    )}
 
             </Carousel>
+             :<h3 className='text-center text-white fw-bold'><br></br>Not Available</h3>}
         </div>
 
 

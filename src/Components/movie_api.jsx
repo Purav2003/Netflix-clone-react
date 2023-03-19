@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import '../index.css'
 import gif from './loading.gif';
+import net_no_image from './net_no_image.jpg';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -55,7 +56,13 @@ const Movie_api = () => {
       if(loading){
         return <h1>sojo</h1>
       }
-
+      const handleContextmenu = e => {
+        e.preventDefault()
+    }
+    document.addEventListener('contextmenu', handleContextmenu)
+    return function cleanup() {
+        document.removeEventListener('contextmenu', handleContextmenu)
+    }
   }, [])
 
 
@@ -100,11 +107,13 @@ const Movie_api = () => {
       <Carousel cols={5} rows={1} loop >
         {movies.map((movie) => {
           const { poster_path, id } = movie
+          let data=net_no_image
+          {poster_path!==null?data=IMG + poster_path:data=data}
           return <Carousel.Item>
 
             <div>
 
-              <img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' />
+              <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
               <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
                 <span class="tooltiptext">Add To My List</span>
               </button>

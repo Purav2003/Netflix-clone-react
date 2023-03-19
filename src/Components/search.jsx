@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import '../index.css'
 import gif from './loading.gif';
+import net_no_image from './net_no_image.jpg';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -70,6 +71,13 @@ const Search = () => {
         console.log(data)
         setTv(data.results)
       })
+      const handleContextmenu = e => {
+        e.preventDefault()
+    }
+    document.addEventListener('contextmenu', handleContextmenu)
+    return function cleanup() {
+        document.removeEventListener('contextmenu', handleContextmenu)
+    }
   }, [])
   const selectMovie = (id) => {
     const mov=[];
@@ -146,11 +154,13 @@ const Search = () => {
         <Carousel cols={5} rows={a}  >
           {movies.map((movie) => {
             const { poster_path, id ,title:Title} = movie
+            let data=net_no_image
+                {poster_path!==null?data=IMG + poster_path:data=data}
             return <Carousel.Item>
 
               <div className="okkk">
 
-                <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={IMG + poster_path} className='pop-movie' /></a>
+                <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' /></a>
                 <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesMovie(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
                 </button>
 
@@ -170,11 +180,13 @@ const Search = () => {
         <Carousel cols={5} rows={b}  >
           {tv.map((movie) => {
             const { poster_path, id } = movie
+            let data=net_no_image
+            {poster_path!==null?data=IMG + poster_path:data=data}            
             return <Carousel.Item>
 
               <div>
 
-                <a href="#demo"><img width="100%" onClick={() => selectTv(id)}  src={IMG + poster_path} className='pop-movie' /></a>
+                <a href="#demo"><img width="100%" onClick={() => selectTv(id)}  src={data} className='pop-movie' /></a>
                 <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesTv(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
                 </button>
 
