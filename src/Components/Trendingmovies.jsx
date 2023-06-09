@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = 'https://api.themoviedb.org/3/trending/movie/day?api_key=62ebf6fda469c1af3fe79388b1ce3912'
 
@@ -35,6 +36,8 @@ function Trendingmovies() {
   const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
   const [loading,setLoading] = useState(false)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
+  const navigate = useNavigate();
+
   const IMG = 'https://image.tmdb.org/t/p/w500/'
 
   useEffect(() => {
@@ -56,8 +59,8 @@ function Trendingmovies() {
     setSelectedMovie(mov)
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
     localStorage.setItem('similar',JSON.stringify(id))
-    window.location.replace('http://localhost:3000/details');
-  }
+    navigate('/details', { replace:true });
+    window.scrollTo(0, 0);     }
 
   const addToFavorites = (id) =>{
       if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {

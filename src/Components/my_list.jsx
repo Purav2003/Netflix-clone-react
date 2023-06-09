@@ -3,6 +3,7 @@ import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import net_no_image from './net_no_image.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const getSelectedFromLocalStorage = () => {
   let selectedmovie = localStorage.getItem('selectedMovie');
@@ -17,6 +18,7 @@ const getSelectedFromLocalStorage = () => {
 }
 function My_list() {
   const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
+  const navigate = useNavigate();
 
   useEffect(() => {
    
@@ -51,16 +53,16 @@ function My_list() {
     mov.map((item) => {
       const { title: Title } = item
       if (Title) {
-        window.location.replace('http://localhost:3000/details');
-
+        navigate('/details', { replace:true });
+        window.scrollTo(0, 0);
       }
 
     })
     mov.map((item) => {
       const { title: Title } = item
       if (!Title) {
-        window.location.replace('http://localhost:3000/details/tv');
-      }
+        navigate('/tv', { replace:true });
+        window.scrollTo(0, 0);         }
 
     })
   }
@@ -74,8 +76,8 @@ function My_list() {
   const remove = () => {
     const updatedFavorites = []
     localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
-    window.location.replace('http://localhost:3000/my-list');
-
+    navigate('/my-list', { replace:true });
+    window.scrollTo(0, 0);   
   }
   return (
     <section>

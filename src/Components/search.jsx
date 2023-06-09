@@ -4,6 +4,7 @@ import * as icons from 'react-icons/ai'
 import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -32,6 +33,7 @@ const Search = () => {
   const [movies, setMovies] = useState([]);
   const [tv, setTv] = useState([]);
   const [loading,setLoading] = useState(false)
+  const navigate = useNavigate();
 
   let search = (localStorage.getItem('search'))
 
@@ -87,8 +89,8 @@ const Search = () => {
     setSelectedMovie(mov)
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
     localStorage.setItem('similar',JSON.stringify(id))
-    window.location.replace('http://localhost:3000/details');
-  }
+    navigate('/details', { replace:true });
+    window.scrollTo(0, 0);     }
   const selectTv = (id) => {
     const mov=[];
     let mov1=tv.find((mov) => mov.id === id)
@@ -97,8 +99,9 @@ const Search = () => {
     setSelectedMovie(mov)
     localStorage.setItem('similar',JSON.stringify(id))
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
-    window.location.replace('http://localhost:3000/details/tv');
-  }
+    navigate('/details/tv', { replace:true });
+    window.scrollTo(0, 0);   
+    }
   const addToFavoritesTv = (id) => {
     if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
       const meal = tv.find((movie) => movie.id === id);

@@ -14,10 +14,11 @@ import Tvdetail from './Components/tvdetails';
 function App() {
   return (
     <div>
-<Navbar />
+  <Navbar />
       <Router>
         <Routes>
-          <Route path='/' element={<Page />} />      
+        <Route path='/' element={<Page />} />      
+          <Route path='/home' element={<Page />} />      
           <Route path='/Tv' element={<Page_tv />} />      
           <Route path='/Movies' element={<Page_movie/>} /> 
           <Route path='/Recently-Added' element={<Page_recently />}/>

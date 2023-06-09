@@ -7,33 +7,26 @@ import * as icons from 'react-icons/fi';
 const Navbar = () => {
   const [text, setText] = useState()
   const firstnav = () => {
-    const change = 'http://localhost:3000/'
     const a = window.location.href
-    return change === a ? "okk" : "nookk"
+    return a.includes("home") ? "okk" :"nookk"
   }
   const secondnav = () => {
-    const change2 = 'http://localhost:3000/Tv'
-    const change_2='http://localhost:3000/details/tv'
     const a2 = window.location.href
-    return change2 === a2 ? "okk" : change_2 === a2 ? "okk": "nookk" 
+    return a2.includes("tv") ? "okk" : a2.includes("Tv") ? "okk": "nookk" 
 
   }
   const thirdnav = () => {
-    const change = 'http://localhost:3000/Movies'
-    const change_1 = 'http://localhost:3000/details'
     const a = window.location.href
-    return change === a ? "okk" : change_1 === a ? "okk" : "nookk"
+    return a.includes("Movies") ? "okk" : "nookk"
   }
   const fournav = () => {
-    const change2 = 'http://localhost:3000/Recently-Added'
     const a2 = window.location.href
-    return change2 === a2 ? "okk" : "nookk"
+    return a2.includes("Recently-Added") ? "okk" : "nookk"
 
   }
   const fivenav = () => {
-    const change2 = 'http://localhost:3000/my-list'
     const a2 = window.location.href
-    return change2 === a2 ? "okk" : "nookk"
+    return a2.includes("my-list") ? "okk" : "nookk"
   }
   const handleChange = (event) => {
     setText(event.target.value);
@@ -43,7 +36,7 @@ const Navbar = () => {
     e.preventDefault()
     if(text){
       localStorage.setItem('search', JSON.stringify(text))
-      window.location.replace('http://localhost:3000/Search');
+      window.location.replace('/Search')
 
     }
 }
@@ -75,7 +68,7 @@ const Navbar = () => {
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a href="/" className={`nav-link ${firstnav()}`}>Home</a>
+              <a href="/home" className={`nav-link ${firstnav()}`}>Home</a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${secondnav()}`} href="/Tv">Tv Shows</a>

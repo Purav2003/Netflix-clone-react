@@ -5,6 +5,7 @@ import * as icons from 'react-icons/ai'
 import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -36,6 +37,7 @@ const Tv_api = () => {
   const [selectedMovie, setSelectedMovie] =useState(getSelectedFromLocalStorage())
   const [loading,setLoading] = useState(false)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
+  const navigate = useNavigate();
   let genre = (localStorage.getItem('genre'))
   genre = JSON.parse(localStorage.getItem('genre'))
   let page = (localStorage.getItem('page'))
@@ -72,8 +74,8 @@ const Tv_api = () => {
     setSelectedMovie(mov)
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
     localStorage.setItem('similar',JSON.stringify(id))
-    window.location.replace('http://localhost:3000/details/tv');
-    
+    navigate('/details/tv', { replace:true });
+    window.scrollTo(0, 0);       
   }
   const addToFavorites = (id) => {
     if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {

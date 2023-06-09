@@ -3,8 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import * as icon from 'react-icons/ai'
 import * as icons from 'react-icons/fa'
 import net_no_image from './net_no_image.jpg';
-
-
+import { useNavigate } from 'react-router-dom';
 import '../index.css'
 
 const getFavoritesFromLocalStorage = () => {
@@ -36,6 +35,7 @@ function Details() {
     const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
     const [video, setVideo] = useState([]);
     const [added, setAdded] = useState([])
+    const navigate = useNavigate();
 
     let id = localStorage.getItem('similar');
     id = JSON.parse(localStorage.getItem('similar'))
@@ -88,8 +88,8 @@ function Details() {
         setSelectedMovie(mov)
         localStorage.setItem('selectedMovie', JSON.stringify(mov))
         localStorage.setItem('similar', JSON.stringify(id))
-        window.location.replace('http://localhost:3000/details');
-
+        navigate('/details/tv', { replace:true });
+        window.scrollTo(0, 0);   
     }
     const addToFavorites = (id) => {
         if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {

@@ -4,6 +4,8 @@ import * as icons from 'react-icons/ai'
 import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
+import { useNavigate } from 'react-router-dom';
+
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -33,6 +35,7 @@ const Movie_api = () => {
   const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
   const [loading,setLoading] = useState(false)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
+  const navigate = useNavigate();
 
 
   let genre = (localStorage.getItem('genre'))
@@ -74,9 +77,9 @@ const Movie_api = () => {
     setSelectedMovie(mov)
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
     localStorage.setItem('similar',JSON.stringify(id))
-    window.location.replace('http://localhost:3000/details');
+    navigate('/details', { replace:true });
+    window.scrollTo(0, 0);
   }
-
   const addToFavorites = (id) => {
     if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
       const mov = movies.find((movie) => movie.id === id);
