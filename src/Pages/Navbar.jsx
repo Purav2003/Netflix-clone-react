@@ -77,7 +77,7 @@ const Navbar = () => {
               <a className={`nav-link ${thirdnav()}`} href="/Movies">Movies</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${fournav()}`} href="/Recently-Added">Recently Added</a>
+              <a className={`nav-link ${fournav()}`} href="/Recently-Added">Recently Addedsss</a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${fivenav()}`} href="/my-list">My List</a>
