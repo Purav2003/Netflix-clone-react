@@ -54,11 +54,8 @@ const Movie_api = () => {
       .then(data => {
         console.log(data)
         setLoading(false)
-        setMovies(data.results)
-      })
-      if(loading){
-        return <h1>sojo</h1>
-      }
+        setMovies(data.results) 
+      })  
       const handleContextmenu = e => {
         e.preventDefault()
     }

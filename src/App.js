@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './Pages/Navbar';
 import Page from './Pages/page'
 import Page_tv from './Pages/Page_tv';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import { HashRouter as Router,Routes,Route } from 'react-router-dom';
 import Page_movie from './Pages/page_movie';
 import Page_recently from './Pages/page_recently';
 import MyList from './Pages/MyList';
