@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './Pages/Navbar';
 import Page from './Pages/page'
 import Page_tv from './Pages/Page_tv';
-import { HashRouter as Router,Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Page_movie from './Pages/page_movie';
 import Page_recently from './Pages/page_recently';
 import MyList from './Pages/MyList';
@@ -19,7 +19,7 @@ function App() {
         <Routes>
         <Route path='/' element={<Page />} />      
           <Route path='/home' element={<Page />} />      
-          <Route path='/Tv' element={<Page_tv />} />      
+          <Route path='/TV' element={<Page_tv />} />      
           <Route path='/Movies' element={<Page_movie/>} /> 
           <Route path='/Recently-Added' element={<Page_recently />}/>
           <Route path='/my-list' element={<MyList />}/>
