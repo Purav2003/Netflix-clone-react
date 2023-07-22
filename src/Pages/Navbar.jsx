@@ -71,10 +71,10 @@ const Navbar = () => {
               <a href="/home" className={`nav-link ${firstnav()}`}>Home</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${secondnav()}`} href="/Tv">Tv Shows</a>
+              <a className={`nav-link ${secondnav()}`} href="https://main--stalwart-travesseiro-fbe352.netlify.app/Tv">Tv Shows</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${thirdnav()}`} href="/Movies">Movies</a>
+              <a className={`nav-link ${thirdnav()}`} href="/Movies">Moviessss</a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${fournav()}`} href="/Recently-Added">Recently Added</a>
