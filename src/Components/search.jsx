@@ -50,7 +50,6 @@ const Search = () => {
   }
   const data = newStr.join("")
   const API_URL = 'https://api.themoviedb.org/3/search/movie?api_key=62ebf6fda469c1af3fe79388b1ce3912&query=' + data
-  console.log(API_URL)
   const IMG = 'https://image.tmdb.org/t/p/w500/'
   const API_URL1 = 'https://api.themoviedb.org/3/search/tv?api_key=62ebf6fda469c1af3fe79388b1ce3912&query=' + data
 
@@ -59,7 +58,6 @@ const Search = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then(data => {
-        console.log(data)
         if(movies.length<11){
           setLoading(false)
         setMovies(data.results)
@@ -70,7 +68,6 @@ const Search = () => {
     fetch(API_URL1)
       .then((res) => res.json())
       .then(data => {
-        console.log(data)
         setTv(data.results)
       })
       const handleContextmenu = e => {
@@ -138,10 +135,8 @@ const Search = () => {
   }
   let a=0
   movies.length/20? a=movies.length/5:a=Math.floor(movies.length/5)+1
-  console.log(a)
   let b=0
   tv.length<20?b=Math.floor(tv.length/5)+1 :b=4
-  console.log(movies)
 
   return (
     <div>

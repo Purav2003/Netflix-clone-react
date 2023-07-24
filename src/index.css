@@ -1,5 +1,5 @@
 * {
-  font-family: 'Netflix Sans Light',Calibri !important;
+  font-family: 'Netflix Sans Light', Calibri !important;
 }
 
 .font {
@@ -102,7 +102,7 @@ body {
     font-size: 16px !important;
   }
 
-  .title-slide-3 a,.title-slide-3-1 a {
+  .title-slide-3 a, .title-slide-3-1 a {
     color: #a3a3a3 !important;
   }
 
@@ -111,19 +111,22 @@ body {
     font-size: 16px !important;
   }
 
-  .title-slide-4 a,.title-slide-4-1 a {
+  .title-slide-4 a, .title-slide-4-1 a {
     color: #a3a3a3 !important;
   }
-  .stt-1{
+
+  .stt-1 {
     width: 500px !important;
-    margin-bottom:7vw !important;
+    margin-bottom: 7vw !important;
     margin-left: -15vw !important;
   }
-  .stt-1 h3{
+
+  .stt-1 h3 {
     text-align: left !important;
     margin-left: 4.5vw !important;
   }
-  .stt-1 img{
+
+  .stt-1 img {
     margin-left: 4.5vw !important;
   }
 
@@ -131,24 +134,28 @@ body {
     border: 1px solid #a3a3a3;
     padding: 3px !important;
   }
-  .stt-2{
-    background: linear-gradient(to left,transparent,black);
-    
+
+  .stt-2 {
+    background: linear-gradient(to left, transparent, black);
+
   }
 }
 
-.pop-movie:hover{
+.pop-movie:hover {
   border: 2px solid #fff !important;
 }
-.pop-movie{
+
+.pop-movie {
   height: 300px !important;
   width: 220px !important;
   /* object-fit:cover; */
 
 }
-.pop-movie-title{
+
+.pop-movie-title {
   margin-left: 3vw !important;
 }
+
 .navbar {
   box-shadow: none !important;
   /* background: none !important; */
@@ -161,7 +168,7 @@ body {
   src: local('Benguiat'), url('benguiat_[allfont.net].woff') format('woff');
 }
 
-.nav-right{
+.nav-right {
   font-size: 16px !important;
   letter-spacing: 1px;
   font-weight: 500;
@@ -170,48 +177,50 @@ body {
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #000; 
+  background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #E50914; 
+  background: #E50914;
   border-radius: 13px !important;
 }
 
-.pop-movie{
-  border-radius: 5px !important ;
+.pop-movie {
+  border-radius: 5px !important;
 }
 
-.navbar-brand{
+.navbar-brand {
   margin-left: 3vw;
 }
 
-.text-reset{
+.text-reset {
   font-size: 14px !important;
   color: #a3a3a3 !important;
 }
 
-.footer-1{
+.footer-1 {
   margin-left: 10.5vw !important;
   color: #a3a3a3 !important;
 }
 
-.data h6{
+.data h6 {
   color: #a3a3a3 !important;
 }
 
-#demo{
+#demo {
   color: #fff !important;
 }
 
-.btn-danger{
-  position:relative;
+.btn-danger {
+  position: relative;
   top: -290px;
   left: 158px;
   background: #E50914 !important;
 }
 
-.iconsize{
+.iconsize {
   width: 18px !important;
   height: 18px !important;
   margin-left: -9px !important;
@@ -219,19 +228,19 @@ body {
 }
 
 
-.okk{
+.clicked {
   color: #fff;
 }
 
-.nookk{
+.not-clicked {
   color: gray !important;
 }
 
-.title-list{
+.title-list {
   margin-left: 3vw !important;
 }
 
-.btn-danger{
+.btn-danger {
   border-radius: 50% !important;
   width: 45px !important;
   height: 45px !important;
@@ -254,15 +263,15 @@ body {
   z-index: 1;
 }
 
-.btn-danger:hover .tooltiptext{
+.btn-danger:hover .tooltiptext {
   visibility: visible;
 }
 
-.title{
+.title {
   margin-left: 65px !important;
 }
 
-.search-input{
+.search-input {
   border: none !important;
   background: none !important;
   border-radius: 0px !important;
@@ -271,20 +280,22 @@ body {
   color: #fff;
 }
 
-.search-input::placeholder{
+.search-input::placeholder {
   font-size: 14px;
 }
-.search-input:focus{
+
+.search-input:focus {
 
   outline: none !important;
   /* border: none !important; */
 }
-.button-search{
+
+.button-search {
   background: none !important;
   border: none !important;
 }
 
-.icons-search{
+.icons-search {
   color: white !important;
 }
 
@@ -297,27 +308,27 @@ body {
 }
 
 
-.button-remove:hover{
+.button-remove:hover {
   background: #E50914 !important;
   border: solid 1px #E50914 !important;
   color: #fff !important;
 }
 
-.movie-details{
+.movie-details {
   margin-left: 4vw !important;
   height: 500px !important;
   width: 27%;
 }
 
-.card-img-top:hover{
+.card-img-top:hover {
   cursor: pointer;
 }
 
-.button-like-1{
+.button-like-1 {
   width: 240px !important;
 }
 
-.numbers{
+.numbers {
   background: red;
   color: #fff;
   border-radius: 50% !important;
@@ -329,4 +340,39 @@ body {
   width: 17px;
   height: 17px;
   text-align: center !important;
+}
+
+
+@media screen and (min-width:220px) and (max-width:650px) {
+  .second-nav {
+    width: 0px !important;
+  }
+
+  .form-search {
+    margin-left: -74vw !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  .side-links {
+    width: 0px !important;
+    font-size: 0px !important;
+  }
+
+  .carousel {
+    margin-top: 10vw !important;
+  }
+
+  .title {
+    margin-left: 6vw !important;
+    margin-top: 10vw !important;
+  }
+
+  .pop-movie {
+    width: 90% !important;
+    height: 55% !important;
+  }
+  .iconsize,.button-like{
+      visibility: hidden !important;
+  }
 }

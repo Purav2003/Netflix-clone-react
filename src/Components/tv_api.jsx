@@ -44,7 +44,6 @@ const Tv_api = () => {
   page = JSON.parse(localStorage.getItem('page'))
 
   const API_URL = 'https://api.themoviedb.org/3/tv/' + genre + '?api_key=62ebf6fda469c1af3fe79388b1ce3912&page=' + page
-  console.log(API_URL)
   const IMG = 'https://image.tmdb.org/t/p/w500/'
 
   useEffect(() => {
@@ -52,7 +51,6 @@ const Tv_api = () => {
     fetch(API_URL)
       .then((res) => res.json()) 
       .then(data => {
-        console.log(data)
         setLoading(false)
         setMovies(data.results)
       })
@@ -70,7 +68,6 @@ const Tv_api = () => {
     const mov=[];
     let mov1=movies.find((mov) => mov.id === id)
     mov.push(mov1)
-    console.log(mov)
     setSelectedMovie(mov)
     localStorage.setItem('selectedMovie', JSON.stringify(mov))
     localStorage.setItem('similar',JSON.stringify(id))

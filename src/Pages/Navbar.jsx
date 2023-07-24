@@ -2,31 +2,32 @@ import { useState } from "react";
 import netflix from "./images/netflix-avatar.png"
 import logo from "./images/netflix-logo.png"
 import * as icons from 'react-icons/fi';
+import * as icon from 'react-icons/rx';
 
 
 const Navbar = () => {
   const [text, setText] = useState()
   const firstnav = () => {
     const a = window.location.href
-    return a.includes("home") ? "okk" :"nookk"
+    return a.includes("home") ? "clicked" :"not-clicked"
   }
   const secondnav = () => {
     const a2 = window.location.href
-    return a2.includes("tv") ? "okk" : a2.includes("Tv") ? "okk": "nookk" 
+    return a2.includes("tv") ? "clicked" : a2.includes("Tv") ? "clicked": "not-clicked" 
 
   }
   const thirdnav = () => {
     const a = window.location.href
-    return a.includes("Movies") ? "okk" : "nookk"
+    return a.includes("Movies") ? "clicked" : "not-clicked"
   }
   const fournav = () => {
     const a2 = window.location.href
-    return a2.includes("Recently-Added") ? "okk" : "nookk"
+    return a2.includes("Recently-Added") ? "clicked" : "not-clicked"
 
   }
   const fivenav = () => {
     const a2 = window.location.href
-    return a2.includes("my-list") ? "okk" : "nookk"
+    return a2.includes("my-list") ? "clicked" : "not-clicked"
   }
   const handleChange = (event) => {
     setText(event.target.value);
@@ -39,6 +40,16 @@ const Navbar = () => {
       window.location.replace('/Search')
 
     }
+
+}
+
+const data = () => {
+  var x = document.getElementById("data");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
   return <section >
@@ -52,8 +63,9 @@ const Navbar = () => {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={data}
         >
-          <i className="fas fa-bars"></i>
+          <icon.RxHamburgerMenu />
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -84,48 +96,22 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="d-flex align-items-center">
-        <form onSubmit={handleSubmit}>
+        <div className="d-flex align-items-center second-nav">
+        <form onSubmit={handleSubmit} className="form-search fixed" id="data">
           <input type='text' value={text} onChange={handleChange} className="search-input" placeholder="Search Movie/Tv"></input>
             <button type="submit" className="button-search">          <a className="text-white me-3" href="Search">
 <icons.FiSearch className="icons-search"/>  </a> </button>  
             </form>
-          <a className="text-white me-3 nav-right" href="#">
+          <a className="text-white me-3 nav-right side-links" href="#">
             KIDS
           </a>
-          <a className="text-white me-3 nav-right" href="#">
+          <a className="text-white me-3 nav-right side-links" href="#">
             DVD
           </a>
-          <div className="dropdown">
+         
+          <div className="dropdown side-links">
             <a
-              className="text-white me-3 dropdown-toggle hidden-arrow"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="fas fa-bell"></i>
-              <span className="badge rounded-pill badge-notification bg-danger">1</span>
-            </a>
-            <ul
-              className="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuLink"
-            >
-              <li>
-                <a className="dropdown-item" href="#">Some news</a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">Another news</a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
-          </div>
-          <div className="dropdown">
-            <a
-              className="dropdown-toggle d-flex align-items-center hidden-arrow"
+              className="dropdown-toggle d-flex align-items-center hidden-arrow side-links"
               href="#"
               id="navbarDropdownMenuAvatar"
               role="button"
@@ -137,6 +123,7 @@ const Navbar = () => {
                 height="25"
                 alt="Black and White Portrait of a Man"
                 loading="lazy"
+                className="side-links"
               />
             </a>
             <ul
