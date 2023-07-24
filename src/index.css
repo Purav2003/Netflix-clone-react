@@ -377,7 +377,12 @@ body {
   }
   .movie-details{
     width:50% !important;
+    margin-top: -15vw !important;
+    align-items: center !important;
     height: 80% !important;
+    display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   }
   .overview{
     width: 85% !important;
