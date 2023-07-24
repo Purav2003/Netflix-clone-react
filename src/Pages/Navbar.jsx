@@ -138,25 +138,25 @@ const data = () => {
     <div class="container-fluid">
       <ul class="nav justify-content-around bottom-nav">
         <li class="nav-item" onClick={() => highlight("Home")}>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/home">
           <home.HiOutlineHome/>
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Tv Shows")}>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/Tv">
           <movie.TbMovie /> 
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Movies")}>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/Movies">
           <movie.TbMovie />          </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Recently Added")}>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/Recently-Added">
           <movie.TbClock />         </a>
         </li>
         <li class="nav-item" onClick={() => highlight("My List")}>
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/my-list">
           <fav.BsBookmark />         </a>
         </li>
       </ul>
