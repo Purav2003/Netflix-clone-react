@@ -414,7 +414,7 @@ body {
   }
   .mob{
     border-bottom: 2px solid #fff !important;
-    background: rgba(10,10,10,0.5);
+    background: rgba(34, 34, 34, 0.5);
     color: white !important;
   }
   .no-mob{
