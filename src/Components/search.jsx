@@ -90,6 +90,7 @@ const Search = () => {
     localStorage.setItem('similar',JSON.stringify(id))
     navigate('/details', { replace:true });
     window.scrollTo(0, 0);     }
+    
   const selectTv = (id) => {
     const mov=[];
     let mov1=tv.find((mov) => mov.id === id)

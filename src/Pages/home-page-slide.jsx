@@ -3,9 +3,45 @@ import mh from './images/mh.jpg'
 import narcos from './images/narcos.jpg'
 import mmt from './images/mmt.png'
 import mht from './images/mht.png'
+import React, { useState, useEffect } from "react";
 import narcost from './images/narcost.png'
+import { useNavigate } from 'react-router-dom';
 
 const HomePageSlide = () => {
+    const getSelectedFromLocalStorage = () => {
+        let selectedmovie = localStorage.getItem('selectedMovie');
+        if (selectedmovie) {
+            selectedmovie = JSON.parse(localStorage.getItem('selectedMovie'))
+        }
+        else {
+            selectedmovie = []
+        }
+    
+        return selectedmovie
+    }
+
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
+
+
+    const selectMovie = (id,data) => {
+        let mov=[]
+        const API_URL = 'https://api.themoviedb.org/3/search/movie?api_key=62ebf6fda469c1af3fe79388b1ce3912&query='+data
+        console.log(API_URL)
+        fetch(API_URL)
+        .then((res) => res.json())
+        .then(data => {
+            setMovies(data.results)
+        })
+        mov=movies
+        console.log(movies)               
+        setSelectedMovie(mov)
+        localStorage.setItem('selectedMovie', JSON.stringify(mov))
+        localStorage.setItem('similar', JSON.stringify(id))
+        // window.location.replace("/details")
+        window.scrollTo(0, 0);
+    }
+
 
     return (
         <div id="carouselBasicExample" className="carousel slide carousel-fade" data-mdb-ride="carousel">
@@ -33,7 +69,7 @@ const HomePageSlide = () => {
             </div>
 
             <div className="carousel-inner">
-                <div className="carousel-item active ">
+                <div className="carousel-item active" onClick={() => selectMovie(778946,"Mission Majnu")}>
                     <img src={mm} className="d-block w-100 img-slide" alt="Sunset Over the City" />
                     <div className="carousel-caption d-none d-md-block">
 
@@ -87,16 +123,7 @@ const HomePageSlide = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-
+            </div>            
         </div>
     )
 }
