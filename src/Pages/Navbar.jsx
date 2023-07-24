@@ -37,12 +37,12 @@ const highlight = (e) =>{
   return <section >
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
-        <button
+        <a href="/" onClick={() => highlight("Home")}><button
           className="navbar-toggler"
           type="button"
                  >
          <img src={logo} className="logonav" />
-        </button>
+        </button></a>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <a className="navbar-brand mt-2 mt-lg-0" href="/">
