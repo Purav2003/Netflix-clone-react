@@ -372,30 +372,34 @@ body {
     width: 90% !important;
     height: 55% !important;
   }
-  .iconsize,.button-like{
-      visibility: hidden !important;
+
+  .iconsize, .button-like {
+    visibility: hidden !important;
   }
-  .movie-details{
-    width:50% !important;
+
+  .movie-details {
+    width: 50% !important;
     margin-top: -15vw !important;
     align-items: center !important;
     height: 80% !important;
     display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
-  .overview{
+
+  .overview {
     width: 85% !important;
     margin-left: 3vw !important;
     font-weight: 500 !important;
   }
-  .buttons-bottom{
+
+  .buttons-bottom {
     display: block !important;
     margin-left: 10vw !important;
 
   }
 
-  .heading-detail{
+  .heading-detail {
     margin-top: 10vw !important;
   }
 
@@ -403,7 +407,19 @@ body {
 
 
 @media screen and (min-width:900px) {
-  .main-detail-div{
+  .main-detail-div {
     display: flex !important;
-  }  
+  }
+}
+
+.overview-detail{
+  line-height: 30px !important;
+  text-align:justify !important;
+  font-weight: 100 !important;
+  font-family: 'Netflix Sans' !important;
+}
+
+.title-detail{
+  color:#E50914;
+  font-weight: 700;
 }

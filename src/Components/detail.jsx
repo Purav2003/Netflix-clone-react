@@ -39,7 +39,6 @@ function Details() {
 
     let id = localStorage.getItem('similar');
     id = JSON.parse(localStorage.getItem('similar'))
-    console.log(id)
     const API_URL = 'https://api.themoviedb.org/3/tv/' + id + '/similar?api_key=62ebf6fda469c1af3fe79388b1ce3912'
     const API_URL_2 = 'https://api.themoviedb.org/3/tv/' + id + '/videos?api_key=62ebf6fda469c1af3fe79388b1ce3912&language=en-US'
 
@@ -47,13 +46,11 @@ function Details() {
         fetch(API_URL)
             .then((res) => res.json())
             .then(data => {
-                console.log(data)
                 setMovies(data.results)
             })
         fetch(API_URL_2)
             .then((res1) => res1.json())
             .then(data1 => {
-                console.log(data1)
                 setVideo(data1.results)
             })
             const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
@@ -84,7 +81,6 @@ function Details() {
         const mov = [];
         let mov1 = movies.find((mov) => mov.id === id)
         mov.push(mov1)
-        console.log(mov)
         setSelectedMovie(mov)
         localStorage.setItem('selectedMovie', JSON.stringify(mov))
         localStorage.setItem('similar', JSON.stringify(id))
@@ -140,7 +136,7 @@ function Details() {
                         <img src={data} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
                             <h1 className='overview heading-detail' style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Netflix Sans' }}>{title}{name}</h1><br></br>
-                            <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
+                            <h5 className='text-white overview overview-data' style={{  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
                             <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
                             <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average}</h5><br></br>
                             <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>

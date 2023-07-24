@@ -55,7 +55,6 @@ function Details() {
         fetch(API_URL_2)
             .then((res1) => res1.json())
             .then(data1 => {
-                console.log(data1)
                 setVideo(data1.results)
             })
         const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
@@ -87,7 +86,6 @@ function Details() {
         const mov = [];
         let mov1 = movies.find((mov) => mov.id === id)
         mov.push(mov1)
-        console.log(mov)
         setSelectedMovie(mov)
         localStorage.setItem('selectedMovie', JSON.stringify(mov))
         localStorage.setItem('similar', JSON.stringify(id))
@@ -97,7 +95,6 @@ function Details() {
     const addToFavorites = (id) => {
         if (favoritesmovie.length >= 0 && favoritesmovie.length < 15) {
             const mov = selectedMovie.find((movie) => movie.id === id);
-            console.log(mov)
             const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
             if (alreadyFavorite) {
                 alert('Already Added')
@@ -105,7 +102,6 @@ function Details() {
             }
             const updatedFavorites = [...favoritesmovie, mov]
             setFavoritesmovie(updatedFavorites)
-            console.log(updatedFavorites)
             localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
         }
 
@@ -142,19 +138,17 @@ function Details() {
             selectedmovie.map((moviea) => {
                 const { name, poster_path, id: ID, title, overview, release_date, first_air_date, vote_average, popularity } = moviea
                 let data=net_no_image
-                console.log(poster_path)
                 {poster_path!==null?data=IMG + poster_path:data=data}
-                {console.log(data)}
                 return <div>
-                    <div className="row col-md-12" key="ID">
+                    <div className="main-detail-div col-md-12" key="ID">
                         <img src={data} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
-                            <h1 style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Netflix Sans' }}>{title}{name}</h1><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average}</h5><br></br>
-                            <h5 className='text-white' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Netflix Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>
-                            <div style={{ display: 'flex' }}>
+                            <h1 className='overview' style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Netflix Sans' }}>{title}{name}</h1><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Overview:</a> {overview}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Vote:</a> {vote_average}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Popularity:</a> {popularity}</h5><br></br>
+                            <div style={{ display: 'flex' }} className='buttons-bottom'>
                                 <div className='m-4 col-md-4'><button className='button-like-1 col-md-12 btn btn-outline-primary' onClick={videolink}><icons.FaPlay className='m-1'></icons.FaPlay>&nbsp;&nbsp;Watch Trailer</button></div>
                                 {added == 1 ?
                                     <div>
@@ -176,7 +170,16 @@ function Details() {
         <div className='pop-movie-title' >       <br></br><br></br>
             <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}>Similar On Netflix<br /></h5>
 {movies.length>1?
-            <Carousel cols={5} rows={1} loop>
+            <Carousel cols={5} rows={1} mobileBreakpoint={220} responsiveLayout={[
+                {
+                  breakpoint: 800,
+                  cols: 2,
+                  rows: 1,
+                  gap: 10,
+                  loop: true,
+                  hideArrow:true
+                }
+              ]} loop>
 
                 {
                     movies.length > 0 ? movies.map((movie) => {
