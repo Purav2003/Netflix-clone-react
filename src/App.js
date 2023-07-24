@@ -10,8 +10,10 @@ import Footer from './Pages/footer';
 import Search from './Components/search';
 import Moviedetail from './Components/moviedetails';
 import Tvdetail from './Components/tvdetails';
+
 // import Movies from './Components/Movies';
 function App() {
+  
   return (
     <div>
   <Navbar />
