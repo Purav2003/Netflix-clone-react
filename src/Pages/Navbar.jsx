@@ -33,7 +33,6 @@ const highlight = (e) =>{
   hey = JSON.parse(localStorage.getItem('highlights'))
 
 
-
   return <section >
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
@@ -78,14 +77,14 @@ const highlight = (e) =>{
             <button type="submit" className="button-search">          <a className="text-white me-3" href="Search">
 <icons.FiSearch className="icons-search"/>  </a> </button>  
             </form>
-          <a className="text-white me-3 nav-right side-links" href="#">
+          <a className="text-white me-3 nav-right hid side-links" href="#">
             KIDS
           </a>
-          <a className="text-white me-3 nav-right side-links" href="#">
+          <a className="text-white me-3 nav-right hid side-links" href="#">
             DVD
           </a>
          
-          <div className="dropdown side-links">
+          <div className="dropdown side-links profile">
             <a
               className="dropdown-toggle d-flex align-items-center hidden-arrow side-links"
               href="#"

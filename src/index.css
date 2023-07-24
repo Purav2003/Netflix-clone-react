@@ -350,7 +350,7 @@ body {
   }
 
   .form-search {
-    margin-left: -59vw !important;
+    margin-left: -55vw !important;
     position: sticky !important;
     top: 0 !important;
   }
@@ -363,14 +363,19 @@ body {
   }
 
   .form-search input{
-    width: 36vw !important;
+    width: 34vw !important;
   }
 
-
+  .hid{
+    display: none !important;
+  }
   .side-links {
-    width: 0px !important;
     font-size: 0px !important;
+    /* display:none !important; */
   }
+
+
+  
 
   .carousel {
     margin-top: 10vw !important;
