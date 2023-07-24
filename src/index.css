@@ -421,7 +421,8 @@ body {
   }
 
   .bottom-nav .nav-link {
-    margin-left: 3vw !important;
+    margin-left: -3vw !important;
+    margin-left: 11px !important;
   }
   .mob{
     border-bottom: 2px solid #fff !important;
@@ -441,12 +442,22 @@ body {
   }
   .heading-list{
     margin-top: -7vw !important;
+    width: 350px !important;
   }
   .logonav{
     width: 90px !important;
   }
+  .second-delete-btn{
+    font-size: 25px !important;
+    /* margin-left: -100px !important; */
+  }
 }
 
+@media screen and (min-width:399px) and (max-width:650px) {
+  .bottom-nav .nav-link {
+    margin-left: 17px !important;
+  }
+}
 
 @media screen and (min-width:900px) {
   .main-detail-div {
@@ -487,6 +498,11 @@ body {
   .mobile-nav,.bottom-nav li a{
     width: 0px !important;
     font-size: 0px !important;
+  }
+  .second-delete-btn{
+    width: 0px !important;
+    font-size: 0px !important;
+    border: none !important;
   }
 }
 

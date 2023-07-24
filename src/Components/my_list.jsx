@@ -87,7 +87,7 @@ function My_list() {
         <div className='title-list'>
           <div className='tables-list'>
             <h5 className='text-white heading-list m-4 col-md-8' style={{ fontFamily: 'Netflix Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
-            {favoritesmovie.length > 0 ? <button className='col-md-2 btn btn-outline-danger btn-remove-all m-4' onClick={remove}>Remove All</button> : <h1></h1>}</div>
+            {favoritesmovie.length > 0 ?<> <button className='col-md-2 btn btn-outline-danger btn-remove-all m-4' onClick={remove}>Remove All</button></>: <h1></h1>}</div>
           {
             favoritesmovie.length > 0 ?
               <Carousel cols={5} rows={3} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[

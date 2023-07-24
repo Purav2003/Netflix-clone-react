@@ -10,6 +10,7 @@ import * as fav from 'react-icons/bs';
 
 const Navbar = () => {
   const [text, setText] = useState()
+  
   const handleChange = (event) => {
     setText(event.target.value);
   };
