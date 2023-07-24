@@ -369,8 +369,8 @@ body {
   }
 
   .pop-movie {
-    width: 60% !important;
-    height: 35% !important;
+    width: 90% !important;
+    height: 55% !important;
   }
   .iconsize,.button-like{
       visibility: hidden !important;

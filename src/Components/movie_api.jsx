@@ -101,7 +101,16 @@ const Movie_api = () => {
           loading?<img src={gif} className="loading"></img>
         
       :(<div>
-      <Carousel cols={5} rows={1} loop >
+      <Carousel cols={5} rows={1} mobileBreakpoint={220} responsiveLayout={[
+  {
+    breakpoint: 800,
+    cols: 2,
+    rows: 1,
+    gap: 10,
+    loop: true,
+    hideArrow:true
+  }
+]} loop >
         {movies.map((movie) => {
           const { poster_path, id } = movie
           let data=net_no_image
