@@ -453,7 +453,7 @@ body {
   }
 }
 
-@media screen and (min-width:399px) and (max-width:650px) {
+@media screen and (min-width:379px) and (max-width:650px) {
   .bottom-nav .nav-link {
     margin-left: 17px !important;
   }
