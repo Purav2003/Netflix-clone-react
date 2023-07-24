@@ -73,8 +73,9 @@ function My_list() {
     const updatedFavorites = favoritesmovie.filter((meal) => meal.id != id);
     favoritesmovie = updatedFavorites
     localStorage.setItem('favoritesMovie', JSON.stringify(favoritesmovie))
-    toast.success("Added To My List",{duration: 1500})
-  }
+    toast.success("Removed From My List",{duration: 1500})
+    setTimeout(redirect,1500)
+    }
 
   const remove = () => {
     const updatedFavorites = []
@@ -84,9 +85,8 @@ function My_list() {
     window.scrollTo(0, 0);   
   }
 
-  const redirect = () =>{
-    window.location.relpace('/my-list');
-
+  const redirect = () => {
+    window.location.replace("/my-list")
   }
   return (
     <section>
