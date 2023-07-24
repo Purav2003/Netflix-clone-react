@@ -144,7 +144,6 @@ const data = () => {
         </li>
         <li class="nav-item" onClick={() => highlight("Tv Shows")}>
           <a class="nav-link" href="#">
-          {/* <PiTelevisionSimpleLight /> */}
           <movie.TbMovie /> 
           </a>
         </li>

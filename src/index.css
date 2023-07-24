@@ -404,10 +404,13 @@ body {
   }
 
   .bottom-nav li a{
-    font-size: 18px !important;
+    font-size: 22px !important;
   }
   .bottom-nav{
-    margin-left: -3vw !important;
+    margin-left: 2vw !important;
+  }
+  .bottom-nav .nav-link {
+    margin-left: 3vw !important;
   }
 
 }
