@@ -143,7 +143,7 @@ function Details() {
                     <div className="main-detail-div col-md-12" key="ID">
                         <img src={data} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
-                            <h1 className='overview heading-detail' style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Netflix Sans' }}>{title}{name}</h1><br></br>
+                            <h1 className='overview heading-detail' style={{ 'font-weight': '700', 'color': '#E50914'}}>{title}{name}</h1><br></br>
                             <h5 className='text-white overview overview-detail'><a className='title-detail'>Overview:</a> {overview}</h5><br></br>
                             <h5 className='text-white overview overview-detail'><a className='title-detail'>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
                             <h5 className='text-white overview overview-detail'><a className='title-detail'>Vote:</a> {vote_average}</h5><br></br>

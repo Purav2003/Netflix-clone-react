@@ -22,7 +22,7 @@ body {
   color: #fff !important;
   letter-spacing: 1px !important;
   font-weight: 100 !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   margin-left: 20px !important;
 }
 
@@ -475,7 +475,7 @@ body {
   line-height: 30px !important;
   text-align:justify !important;
   font-weight: 100 !important;
-  font-family: 'Netflix Sans' !important;
+  font-family: 'Calibri' !important;
 }
 
 .title-detail{
