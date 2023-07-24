@@ -61,7 +61,7 @@ function My_list() {
     mov.map((item) => {
       const { title: Title } = item
       if (!Title) {
-        navigate('/detail/tv', { replace:true });
+        navigate('/details/tv', { replace:true });
         window.scrollTo(0, 0);         }
 
     })
