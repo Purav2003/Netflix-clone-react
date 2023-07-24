@@ -97,9 +97,10 @@ const Tv_api = () => {
           loading?<img src={gif} className="loading"></img>
         
       :(
-      <Carousel cols={5} rows={1} mobileBreakpoint={220} responsiveLayout={[
+      <Carousel cols={5} rows={1} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
         {
           breakpoint: 800,
+          scrollSnap:true,
           cols: 2,
           rows: 1,
           gap: 10,
