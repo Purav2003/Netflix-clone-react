@@ -85,12 +85,22 @@ function My_list() {
       {
 
         <div className='title-list'>
-          <div className='row'>
-            <h5 className='text-white m-4 col-md-8' style={{ fontFamily: 'Netflix Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
-            {favoritesmovie.length > 0 ? <button className='col-md-2 btn btn-outline-danger m-4' onClick={remove}>Remove All</button> : <h1></h1>}</div>
+          <div className='tables-list'>
+            <h5 className='text-white heading-list m-4 col-md-8' style={{ fontFamily: 'Netflix Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
+            {favoritesmovie.length > 0 ? <button className='col-md-2 btn btn-outline-danger btn-remove-all m-4' onClick={remove}>Remove All</button> : <h1></h1>}</div>
           {
             favoritesmovie.length > 0 ?
-              <Carousel cols={5} rows={3}>
+              <Carousel cols={5} rows={3} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
+                {
+                  breakpoint: 800,
+                  scrollSnap:true,
+                  cols: 2,
+                  rows: 1,
+                  gap: 10,
+                  loop: true,
+                  hideArrow:true
+                }
+              ]} >
                 {
                   favoritesmovie.map((moviea) => {
                     const { poster_path, id } = moviea
@@ -106,12 +116,9 @@ function My_list() {
                 }
               </Carousel>
               : <div>
-                <br></br><center><h3 className='text-white fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center></div>
+                <br></br><center><h3 className='text-white text-list fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center></div>
 
           }             </div>
-
-
-
       }
 
     </section>

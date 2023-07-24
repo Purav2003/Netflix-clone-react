@@ -1,6 +1,7 @@
 import { useState } from "react";
 import netflix from "./images/netflix-avatar.png"
 import logo from "./images/netflix-logo.png"
+import logonav from "./images/net-logo.png"
 import * as icons from 'react-icons/fi';
 import * as icon from 'react-icons/rx';
 import * as home from 'react-icons/hi';
@@ -30,14 +31,7 @@ const highlight = (e) =>{
   let hey = (localStorage.getItem('highlights'))
   hey = JSON.parse(localStorage.getItem('highlights'))
 
-const data = () => {
-  var x = document.getElementById("data");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+
 
   return <section >
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -45,14 +39,8 @@ const data = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={data}
-        >
-          <icon.RxHamburgerMenu />
+                 >
+         <img src={logo} className="logonav" />
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -85,7 +73,7 @@ const data = () => {
         </div>
         <div className="d-flex align-items-center second-nav">
         <form onSubmit={handleSubmit} className="form-search fixed" id="data">
-          <input type='text' value={text} onChange={handleChange} className="search-input" placeholder="Search Movie/Tv"></input>
+          <input type='text' id="text-box" value={text} onChange={handleChange} className="search-input" placeholder="Search Movie/Tv"></input>
             <button type="submit" className="button-search">          <a className="text-white me-3" href="Search">
 <icons.FiSearch className="icons-search"/>  </a> </button>  
             </form>
@@ -133,7 +121,7 @@ const data = () => {
     </nav>
 
 
-    <div className="fixed-bottom">
+    <div className="fixed-bottom mobile-nav">
     <nav class="navbar">
     <div class="container-fluid">
       <ul class="nav justify-content-around bottom-nav">

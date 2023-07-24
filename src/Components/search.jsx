@@ -149,7 +149,17 @@ const Search = () => {
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
       {movies.length > 0 ?
-        <Carousel cols={5} rows={a}  >
+        <Carousel cols={5} rows={a} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
+          {
+            breakpoint: 800,
+            scrollSnap:true,
+            cols: 2,
+            rows: 1,
+            gap: 10,
+            loop: true,
+            hideArrow:true
+          }
+        ]} loop >
           {movies.map((movie) => {
             const { poster_path, id ,title:Title} = movie
             let data=net_no_image
@@ -175,7 +185,17 @@ const Search = () => {
       }
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}><br></br>Tv<br /></h5>
       {tv.length > 0 ?
-        <Carousel cols={5} rows={b}  >
+        <Carousel cols={5} rows={b} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
+          {
+            breakpoint: 800,
+            scrollSnap:true,
+            cols: 2,
+            rows: 1,
+            gap: 10,
+            loop: true,
+            hideArrow:true
+          }
+        ]} loop >
           {tv.map((movie) => {
             const { poster_path, id } = movie
             let data=net_no_image
