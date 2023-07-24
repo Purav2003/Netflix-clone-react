@@ -138,25 +138,25 @@ const data = () => {
     <div class="container-fluid">
       <ul class="nav justify-content-around bottom-nav">
         <li class="nav-item" onClick={() => highlight("Home")}>
-          <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":""}`}>
+          <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":"no-mob"}`}>
           <home.HiOutlineHome/>
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Tv Shows")}>
-          <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":""}`}>
+          <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>
           <movie.TbMovie /> 
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Movies")}>
-          <a class="nav-link" href="/Movies" className={`nav-link ${hey === "Movies"?"mob":""}`}>
+          <a class="nav-link" href="/Movies" className={`nav-link ${hey === "Movies"?"mob":"no-mob"}`}>
           <movie.TbMovie />          </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Recently Added")}>
-          <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":""}`}>
+          <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>
           <movie.TbClock />         </a>
         </li>
         <li class="nav-item" onClick={() => highlight("My List")}>
-          <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":""}`}>
+          <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":"no-mob"}`}>
           <fav.BsBookmark />         </a>
         </li>
       </ul>
