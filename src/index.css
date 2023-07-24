@@ -376,7 +376,8 @@ body {
       visibility: hidden !important;
   }
   .movie-details{
-    width:90% !important;
+    width:50% !important;
+    height: 80% !important;
   }
   .overview{
     width: 85% !important;
