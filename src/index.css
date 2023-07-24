@@ -375,4 +375,25 @@ body {
   .iconsize,.button-like{
       visibility: hidden !important;
   }
+  .movie-details{
+    width:90% !important;
+  }
+  .overview{
+    width: 85% !important;
+    margin-left: 3vw !important;
+    font-weight: 500 !important;
+  }
+  .buttons-bottom{
+    display: block !important;
+    margin-left: 10vw !important;
+
+  }
+
+}
+
+
+@media screen and (min-width:900px) {
+  .main-detail-div{
+    display: flex !important;
+  }  
 }
