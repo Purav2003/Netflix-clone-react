@@ -84,7 +84,7 @@ function Details() {
         setSelectedMovie(mov)
         localStorage.setItem('selectedMovie', JSON.stringify(mov))
         localStorage.setItem('similar', JSON.stringify(id))
-        navigate('/details/tv', { replace:true });
+        window.location.replace('/details/tv');
         window.scrollTo(0, 0);   
     }
     const addToFavorites = (id) => {
