@@ -412,7 +412,10 @@ body {
   .bottom-nav .nav-link {
     margin-left: 3vw !important;
   }
-
+  .mob{
+    border-bottom: 2px solid #fff !important;
+    background: rgba(0,0,0,0.1);
+  }
 }
 
 
