@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
 import net_no_image from './net_no_image.jpg';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const getSelectedFromLocalStorage = () => {
   let selectedmovie = localStorage.getItem('selectedMovie');
@@ -71,16 +73,25 @@ function My_list() {
     const updatedFavorites = favoritesmovie.filter((meal) => meal.id != id);
     favoritesmovie = updatedFavorites
     localStorage.setItem('favoritesMovie', JSON.stringify(favoritesmovie))
+    toast.success("Added To My List",{duration: 1500})
   }
 
   const remove = () => {
     const updatedFavorites = []
     localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
-    navigate('/my-list', { replace:true });
+    toast.success("Removed All",{duration: 1500})
+    setTimeout(redirect,1500)
     window.scrollTo(0, 0);   
+  }
+
+  const redirect = () =>{
+    window.location.relpace('/my-list');
+
   }
   return (
     <section>
+              <div><Toaster/></div>
+
       <br></br>
       {
 
@@ -109,7 +120,7 @@ function My_list() {
                     return <Carousel.Item>
                       <div className='card-img-top'>
                         <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' /></div>
-                      <a href='/my-list'><button type="button" className="button-like btn btn-danger" onClick={() => removeFromFavorites(id)}><icons.AiOutlineDelete className='iconsize'></icons.AiOutlineDelete></button>         </a>
+                      <button type="button" className="button-like btn btn-danger" onClick={() => removeFromFavorites(id)}><icons.AiOutlineDelete className='iconsize'></icons.AiOutlineDelete></button>         
                     </Carousel.Item>
                   })
 

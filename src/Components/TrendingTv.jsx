@@ -5,6 +5,8 @@ import * as icons from 'react-icons/ai'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const API_URL = 'https://api.themoviedb.org/3/trending/tv/day?api_key=62ebf6fda469c1af3fe79388b1ce3912'
 
@@ -75,6 +77,7 @@ function TrendingTvshows() {
       const updatedFavorites = [...favoritesmovie, meal]
       setFavoritesmovie(updatedFavorites)
       localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+      toast.success("Added To My List",{duration: 1500})
     }
     else {
       alert('You Can Only Add 15 Movies/Series To The Favorites')
@@ -84,6 +87,9 @@ function TrendingTvshows() {
   }
 
   return (
+    <>
+            <div><Toaster/></div>
+
     <div className='pop-movie-title' id="pop-movie-title">
       <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}><br />Trending Now</h5>
       {
@@ -119,6 +125,7 @@ function TrendingTvshows() {
             </Carousel>)}
 
     </div>
+    </>
   )
 
 }

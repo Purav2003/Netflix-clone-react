@@ -5,6 +5,8 @@ import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
 import { useNavigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const getFavoritesFromLocalStorage = () => {
   let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -127,6 +129,7 @@ const Search = () => {
       const updatedFavorites = [...favoritesmovie, meal]
       setFavoritesmovie(updatedFavorites)
       localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+      toast.success("Added To My List",{duration: 1500})
     }
     else {
       alert('You Can Only Add 15 Movies/Series To The Favorites')
@@ -140,6 +143,8 @@ const Search = () => {
 
   return (
     <div>
+              <div><Toaster/></div>
+
       {
                loading?<img src={gif} className="loading"></img>
    

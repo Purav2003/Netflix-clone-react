@@ -5,6 +5,8 @@ import * as icons from 'react-icons/fa'
 import net_no_image from './net_no_image.jpg';
 import { useNavigate } from 'react-router-dom';
 import '../index.css'
+import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const getFavoritesFromLocalStorage = () => {
     let favoritesmovie = localStorage.getItem('favoritesMovie');
@@ -98,14 +100,21 @@ function Details() {
             const updatedFavorites = [...favoritesmovie, mov]
             setFavoritesmovie(updatedFavorites)
             localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+            toast.success("Added To My List",{duration: 1500})
+            setTimeout(redirect,1500)
         }
         else {
             alert('You Can Only Add 15 Movies/Series To The Favorites')
         }
     }
+    const redirect = () => {
+        window.location.replace("/details/tv")
+      }
     const removeFromFavorites = (id) => {
         const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
         localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+        toast.success("Removed From My List",{duration: 1500})
+        setTimeout(redirect,1500)
     }
     const YT = 'https://www.youtube.com/watch?v='
     const videolink = () => {
@@ -126,6 +135,8 @@ function Details() {
     }
     return <div>
         <br></br><br></br><br></br><br></br><br></br>
+        <div><Toaster/></div>
+
         {
             selectedmovie.map((moviea) => {
                 const { name, poster_path, id: ID, title, overview, release_date, first_air_date, vote_average, popularity } = moviea
@@ -144,13 +155,13 @@ function Details() {
                                 <div className='m-4 col-md-4'><button className='button-like-1 col-md-12 btn btn-outline-primary' onClick={videolink}><icons.FaPlay className='m-1'></icons.FaPlay>&nbsp;&nbsp;Watch Trailer</button></div>
                                 {added == 1 ?
                                     <div>
-                                        <div className='m-4 col-md-12'><a href='/details/tv'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-success" onClick={() => removeFromFavorites(ID)}><icons.FaCheck className='m-1'></icons.FaCheck>&nbsp;&nbsp;Added To My List
-                                        </button></a></div>
+                                        <div className='m-4 col-md-12'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-success" onClick={() => removeFromFavorites(ID)}><icons.FaCheck className='m-1'></icons.FaCheck>&nbsp;&nbsp;Added To My List
+                                        </button></div>
                                     </div>
                                     :
                                     <div>
-                                        <div className='m-4 col-md-12'><a href='/details/tv'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-danger" onClick={() => addToFavorites(ID)}><icons.FaPlus className='m-1'></icons.FaPlus>&nbsp;&nbsp;Add To My List
-                                        </button></a>   </div>
+                                        <div className='m-4 col-md-12'><button type="submit" className="button-like-1 btn col-md-12 btn-outline-danger" onClick={() => addToFavorites(ID)}><icons.FaPlus className='m-1'></icons.FaPlus>&nbsp;&nbsp;Add To My List
+                                        </button>   </div>
                                     </div>
                                 }
 
