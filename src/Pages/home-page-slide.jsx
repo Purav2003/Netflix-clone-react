@@ -38,7 +38,7 @@ const HomePageSlide = () => {
         setSelectedMovie(mov)
         localStorage.setItem('selectedMovie', JSON.stringify(mov))
         localStorage.setItem('similar', JSON.stringify(id))
-        // window.location.replace("/details")
+        window.location.replace("/details")
         window.scrollTo(0, 0);
     }
 
