@@ -403,6 +403,13 @@ body {
     margin-top: 10vw !important;
   }
 
+  .bottom-nav li a{
+    font-size: 18px !important;
+  }
+  .bottom-nav{
+    margin-left: -3vw !important;
+  }
+
 }
 
 
@@ -422,4 +429,17 @@ body {
 .title-detail{
   color:#E50914;
   font-weight: 700;
+}
+
+.bottom-nav{
+  height: 50px !important;
+}
+
+.bottomnav-btn{
+  text-align: justify !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  margin-top: auto !important;
+  align-items: center !important;
 }

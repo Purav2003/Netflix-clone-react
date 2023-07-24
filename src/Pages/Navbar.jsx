@@ -3,32 +3,12 @@ import netflix from "./images/netflix-avatar.png"
 import logo from "./images/netflix-logo.png"
 import * as icons from 'react-icons/fi';
 import * as icon from 'react-icons/rx';
-
+import * as home from 'react-icons/hi';
+import * as movie from 'react-icons/tb';
+import * as fav from 'react-icons/bs';
 
 const Navbar = () => {
   const [text, setText] = useState()
-  const firstnav = () => {
-    const a = window.location.href
-    return a.includes("home") ? "clicked" :"not-clicked"
-  }
-  const secondnav = () => {
-    const a2 = window.location.href
-    return a2.includes("tv") ? "clicked" : a2.includes("Tv") ? "clicked": "not-clicked" 
-
-  }
-  const thirdnav = () => {
-    const a = window.location.href
-    return a.includes("Movies") ? "clicked" : "not-clicked"
-  }
-  const fournav = () => {
-    const a2 = window.location.href
-    return a2.includes("Recently-Added") ? "clicked" : "not-clicked"
-
-  }
-  const fivenav = () => {
-    const a2 = window.location.href
-    return a2.includes("my-list") ? "clicked" : "not-clicked"
-  }
   const handleChange = (event) => {
     setText(event.target.value);
   };
@@ -42,6 +22,13 @@ const Navbar = () => {
     }
 
 }
+
+const highlight = (e) =>{
+    localStorage.setItem('highlights', JSON.stringify(e))
+}
+
+  let hey = (localStorage.getItem('highlights'))
+  hey = JSON.parse(localStorage.getItem('highlights'))
 
 const data = () => {
   var x = document.getElementById("data");
@@ -79,20 +66,20 @@ const data = () => {
             />
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a href="/home" className={`nav-link ${firstnav()}`}>Home</a>
+            <li className="nav-item" onClick={() => highlight("Home")}>
+              <a href="/home" className={`nav-link ${hey === "Home"?"clicked":"not-clicked"}`}>Home</a>
             </li>
-            <li className="nav-item">
-              <a className={`nav-link ${secondnav()}`} href="/Tv">Tv Shows</a>
+            <li className="nav-item" onClick={() => highlight("Tv Shows")}>
+              <a href="/Tv" className={`nav-link ${hey === "Tv Shows"?"clicked":"not-clicked"}`} >Tv Shows</a>
             </li>
-            <li className="nav-item">
-              <a className={`nav-link ${thirdnav()}`} href="/Movies">Movies</a>
+            <li className="nav-item" onClick={() => highlight("Movies")}>
+              <a className={`nav-link ${hey === "Movies"?"clicked":"not-clicked"}`} href="/Movies">Movies</a>
             </li>
-            <li className="nav-item">
-              <a className={`nav-link ${fournav()}`} href="/Recently-Added">Recently Added</a>
+            <li className="nav-item" onClick={() => highlight("Recently Added")}>
+              <a className={`nav-link ${hey === "Recently Added"?"clicked":"not-clicked"}`} href="/Recently-Added">Recently Added</a>
             </li>
-            <li className="nav-item">
-              <a className={`nav-link ${fivenav()}`} href="/my-list">My List</a>
+            <li className="nav-item" onClick={() => highlight("My List")}>
+              <a className={`nav-link ${hey === "My List"?"clicked":"not-clicked"}`} href="/my-list">My List</a>
             </li>
           </ul>
         </div>
@@ -144,6 +131,41 @@ const data = () => {
         </div>
       </div>
     </nav>
+
+
+    <div className="fixed-bottom">
+    <nav class="navbar">
+    <div class="container-fluid">
+      <ul class="nav justify-content-around bottom-nav">
+        <li class="nav-item" onClick={() => highlight("Home")}>
+          <a class="nav-link" href="#">
+          <home.HiOutlineHome/>
+          </a>
+        </li>
+        <li class="nav-item" onClick={() => highlight("Tv Shows")}>
+          <a class="nav-link" href="#">
+          {/* <PiTelevisionSimpleLight /> */}
+          <movie.TbMovie /> 
+          </a>
+        </li>
+        <li class="nav-item" onClick={() => highlight("Movies")}>
+          <a class="nav-link" href="#">
+          <movie.TbMovie />          </a>
+        </li>
+        <li class="nav-item" onClick={() => highlight("Recently Added")}>
+          <a class="nav-link" href="#">
+          <movie.TbClock />         </a>
+        </li>
+        <li class="nav-item" onClick={() => highlight("My List")}>
+          <a class="nav-link" href="#">
+          <fav.BsBookmark />         </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    </div>
+
   </section>
+
 }
 export default Navbar
