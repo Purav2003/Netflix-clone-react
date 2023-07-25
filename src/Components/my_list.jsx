@@ -98,6 +98,7 @@ function My_list() {
         <div className='title-list'>
           <div className='tables-list'>
             <h5 className='text-white heading-list m-4 col-md-8' style={{ fontFamily: 'Netflix Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
+            {favoritesmovie.length > 0 ?<a className='remove-all-mob' onClick={remove}>Remove All</a>:""}
             {favoritesmovie.length > 0 ?<> <button className='col-md-2 btn btn-outline-danger btn-remove-all m-4' onClick={remove}>Remove All</button></>: <h1></h1>}</div>
           {
             favoritesmovie.length > 0 ?
@@ -127,7 +128,7 @@ function My_list() {
                 }
               </Carousel>
               : <div>
-                <br></br><center><h3 className='text-white text-list fw-bold'>You Don't Have Any Saved Movie / Tv<br></br><br></br></h3></center></div>
+                <br></br><center><h3 className='text-white text-list fw-bold'>You Don't Have Any Saved Tv / Movie<br></br><br></br></h3></center></div>
 
           }             </div>
       }

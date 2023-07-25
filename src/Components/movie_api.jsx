@@ -1,6 +1,7 @@
 import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
+import * as icon from 'react-icons/fa'
 import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
@@ -35,6 +36,7 @@ const Movie_api = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
   const [loading,setLoading] = useState(false)
+  let added = 0
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
   const navigate = useNavigate();
 
@@ -55,6 +57,8 @@ const Movie_api = () => {
         setLoading(false)
         setMovies(data.results) 
       })  
+   
+
       const handleContextmenu = e => {
         e.preventDefault()
     }
@@ -62,6 +66,7 @@ const Movie_api = () => {
     return function cleanup() {
         document.removeEventListener('contextmenu', handleContextmenu)
     }
+    
   }, [])
 
 
@@ -95,6 +100,18 @@ const Movie_api = () => {
 
   }
 
+  const removeFromFavorites = (id) => {
+    const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
+    localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+    toast.success("Removed From My List",{duration: 1500})
+    setTimeout(redirect,1500)
+
+}
+const redirect = () => {
+  window.location.reload()
+
+}
+
 
 
   return (
@@ -118,15 +135,26 @@ const Movie_api = () => {
         {movies.map((movie) => {
           const { poster_path, id } = movie
           let data=net_no_image
-          {poster_path!==null?data=IMG + poster_path:data=data}
+          {poster_path!==null?data=IMG + poster_path:data=data
+            const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+            if (alreadyFavorite) {
+                added=1
+            }
+          else {
+              added=0
+          }
+          
+          }
           return <Carousel.Item>
 
             <div>
 
               <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
-              <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
-                <span class="tooltiptext">Add To My List</span>
-              </button>
+             
+              
+                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
+                }
 
             </div>
 

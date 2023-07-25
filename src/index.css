@@ -219,7 +219,11 @@ body {
   left: 158px;
   background: #E50914 !important;
 }
-
+.btn-success {
+  position: relative;
+  top: -290px;
+  left: 158px;
+}
 .iconsize {
   width: 18px !important;
   height: 18px !important;
@@ -240,31 +244,10 @@ body {
   margin-left: 3vw !important;
 }
 
-.btn-danger {
+.btn-danger ,.btn-success{
   border-radius: 50% !important;
   width: 45px !important;
   height: 45px !important;
-}
-
-
-.btn-danger .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  margin-left: -50px;
-  margin-top: 15px;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.btn-danger:hover .tooltiptext {
-  visibility: visible;
 }
 
 .title {
@@ -445,6 +428,7 @@ body {
     width: 0px !important;
     font-size: 0px !important;
     border: none !important;
+    display: none !important;
   }
   .heading-list{
     margin-top: -7vw !important;
@@ -456,6 +440,9 @@ body {
   .second-delete-btn{
     font-size: 25px !important;
     /* margin-left: -100px !important; */
+  }
+  .remove-all-mob{
+    margin-left: -130px !important;
   }
 }
 
@@ -509,6 +496,9 @@ body {
     width: 0px !important;
     font-size: 0px !important;
     border: none !important;
+  }
+  .remove-all-mob{
+    display: none !important;
   }
 }
 

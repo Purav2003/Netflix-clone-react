@@ -2,6 +2,7 @@ import Page from '../Pages/page'
 import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
+import * as icon from 'react-icons/fa'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +40,7 @@ function Trendingmovies() {
   const [loading,setLoading] = useState(false)
   const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
   const navigate = useNavigate();
+  let added = 0
 
   const IMG = 'https://image.tmdb.org/t/p/w500/'
 
@@ -81,6 +83,16 @@ function Trendingmovies() {
           alert('You Can Only Add 15 Movies/Series To The Favorites')
       }
   }
+  const removeFromFavorites = (id) => {
+    const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
+    localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+    toast.success("Removed From My List",{duration: 1500})
+    setTimeout(redirect,1500)
+
+}
+const redirect = () => {
+  window.location.reload()
+}
 
   return (
     <>
@@ -105,15 +117,23 @@ function Trendingmovies() {
               {movies.map((movie) => {
                   const { poster_path, id } = movie
                   let data=net_no_image
-                  {poster_path!==null?data=IMG + poster_path:data=data}
+                  {poster_path!==null?data=IMG + poster_path:data=data
+                    const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+                    if (alreadyFavorite) {
+                        added=1
+                    }
+                  else {
+                      added=0
+                  }
+                  }
                   return <Carousel.Item>
                       
                       <div>
 
                           <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
-                          <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>
-                          <span class="tooltiptext">Add To My List</span></button>         
-
+                          {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
+                }    
                           </div>
                           
 
