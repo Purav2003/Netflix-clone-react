@@ -196,7 +196,7 @@ const redirect = () => {
               <div className="okkk">
 
                 <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' /></a>
-                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesMovie(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
                 :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
                 }
 
@@ -242,7 +242,7 @@ const redirect = () => {
               <div>
 
                 <a href="#demo"><img width="100%" onClick={() => selectTv(id)}  src={data} className='pop-movie' /></a>
-                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesTv(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
                 :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
                 }
 
