@@ -1,6 +1,8 @@
 import Carousel from 'better-react-carousel'
 import React, { useState, useEffect } from "react";
 import * as icons from 'react-icons/ai'
+import * as icon from 'react-icons/fa'
+
 import '../index.css'
 import gif from './loading.gif';
 import net_no_image from './net_no_image.jpg';
@@ -137,6 +139,17 @@ const Search = () => {
     } 
 
   }
+  const removeFromFavorites = (id) => {
+    const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
+    localStorage.setItem('favoritesMovie', JSON.stringify(updatedFavorites))
+    toast.success("Removed From My List",{duration: 1500})
+    setTimeout(redirect,1500)
+
+}
+const redirect = () => {
+  window.location.reload()
+
+}
   let a=0
   movies.length/20? a=movies.length/5:a=Math.floor(movies.length/5)+1
   let b=0
@@ -169,14 +182,24 @@ const Search = () => {
           {movies.map((movie) => {
             const { poster_path, id ,title:Title} = movie
             let data=net_no_image
-                {poster_path!==null?data=IMG + poster_path:data=data}
+                {poster_path!==null?data=IMG + poster_path:data=data
+                  const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+                  if (alreadyFavorite) {
+                      added=1
+                  }
+                else {
+                    added=0
+                }
+                }
             return <Carousel.Item>
 
               <div className="okkk">
 
                 <a href="#demo"><img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' /></a>
-                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesMovie(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
-                </button>
+                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
+                }
+
 
               </div>
 
@@ -205,14 +228,24 @@ const Search = () => {
           {tv.map((movie) => {
             const { poster_path, id } = movie
             let data=net_no_image
-            {poster_path!==null?data=IMG + poster_path:data=data}            
+            {poster_path!==null?data=IMG + poster_path:data=data
+              const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+              if (alreadyFavorite) {
+                  added=1
+              }
+            else {
+                added=0
+            }
+            }            
             return <Carousel.Item>
 
               <div>
 
                 <a href="#demo"><img width="100%" onClick={() => selectTv(id)}  src={data} className='pop-movie' /></a>
-                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavoritesTv(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus>                            <span class="tooltiptext">Add To My List</span>
-                </button>
+                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icons.AiOutlinePlus className='iconsize' ></icons.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icon.FaCheck className='iconsize' ></icon.FaCheck></button>
+                }
+
 
               </div>
 
