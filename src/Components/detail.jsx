@@ -108,7 +108,7 @@ function Details() {
         }
     }
     const redirect = () => {
-        window.location.replace("/details/tv")
+        window.location.reload()
       }
     const removeFromFavorites = (id) => {
         const updatedFavorites=favoritesmovie.filter((meal) => meal.id != id);     
