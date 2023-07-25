@@ -35,6 +35,7 @@ const getSelectedFromLocalStorage = () => {
 const Search = () => {
 
   const [movies, setMovies] = useState([]);
+  let added = 0
   const [tv, setTv] = useState([]);
   const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
@@ -168,7 +169,7 @@ const redirect = () => {
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
       {movies.length > 0 ?
-        <Carousel cols={5} rows={a} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
+        <Carousel cols={5} rows={1} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
           {
             breakpoint: 800,
             scrollSnap:true,
@@ -214,7 +215,7 @@ const redirect = () => {
       }
       <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}><br></br>Tv<br /></h5>
       {tv.length > 0 ?
-        <Carousel cols={5} rows={b} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
+        <Carousel cols={5} rows={1} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
           {
             breakpoint: 800,
             scrollSnap:true,
