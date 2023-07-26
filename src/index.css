@@ -436,35 +436,22 @@ body {
   .heading-list{
     font-size: 19px !important;
   }
-  .mob-nav-link{
-    font-size: 13px !important;
-    text-align: center !important;
-    margin-top: 2px !important;
-  }
- 
-  .mob-nav-link-a{
-    margin-left: -8px !important;
-  }
-  .mob-nav-link-b{
-    margin-left: -12.5px !important;
-  }
-  .mob-nav-link-c{
-    margin-left: -4px !important;
-  }
   .bottom-nav{
-    margin-left: -9px !important;
+    width: 100% !important;
   }
-  .bottom-nav .nav-link {
-    margin-left: 13px !important;
-    margin-top: -10px !important;
+  .bottom-nav .nav-link{
+    display: grid !important;
+    grid-auto-columns: 3fr;
+    margin-top: 5px !important;
+    column-count: 3;
+    justify-content: space-around !important;
+    text-align: center !important;
   }
+
+ 
+  
 }
 
-@media screen and (min-width:379px) and (max-width:650px) {
-  .bottom-nav .nav-link {
-    margin-left: 17px !important;
-  }
-}
 
 @media screen and (min-width:900px) {
   .main-detail-div {
