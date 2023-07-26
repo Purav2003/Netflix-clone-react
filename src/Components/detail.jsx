@@ -55,7 +55,9 @@ function Details() {
             .then(data1 => {
                 setVideo(data1.results)
             })
-            
+                        const handleContextmenu = e => {
+                e.preventDefault()
+            }
             document.addEventListener('contextmenu', handleContextmenu)
             return function cleanup() {
                 document.removeEventListener('contextmenu', handleContextmenu)
