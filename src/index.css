@@ -399,7 +399,7 @@ body {
   }
 
   .bottom-nav li a{
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
 
   .bottom-nav .nav-link {
@@ -442,10 +442,10 @@ body {
     font-size: 19px !important;
   }
   .mob-nav-link{
-    font-size: 13px !important;
-    text-align: center !;
+    font-size: 10px !important;
+    text-align: center !important;
     color: #fff;
-    margin-left: -7px !important;
+    margin-left: -4px !important;
   }
 }
 
