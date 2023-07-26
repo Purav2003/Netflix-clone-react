@@ -144,7 +144,15 @@ function Details() {
             selectedmovie.map((moviea) => {
                 const { name, poster_path, id: ID, title, overview, release_date, first_air_date, vote_average, popularity } = moviea
                 let data=net_no_image
-                {poster_path!==null?data=IMG + poster_path:data=data}
+                {poster_path!==null?data=IMG + poster_path:data=data
+                    const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+                    if (alreadyFavorite) {
+                        added=1
+                    }
+                  else {
+                      added=0
+                  }
+                }
                 return <div>
                     <div className="main-detail-div col-md-12" key="ID">
                         <img src={data} className='col-md-3 movie-details'></img>
