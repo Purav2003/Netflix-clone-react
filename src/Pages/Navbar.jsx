@@ -127,25 +127,25 @@ const highlight = (e) =>{
       <ul class="nav justify-content-around bottom-nav">
         <li class="nav-item" onClick={() => highlight("Home")}>
           <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":"no-mob"}`}>
-          <fav.BsHouseDoor/>
+          {hey === "Home"?<fav.BsHouseDoorFill/>:<fav.BsHouseDoor/>}
           </a>
         </li>
           <li class="nav-item" onClick={() => highlight("Tv Shows")}>
             <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>
-            <fav.BsTv /> 
+            {hey==="Tv Shows"?<fav.BsTvFill />:<fav.BsTv /> }
             </a>
           </li>
           <li class="nav-item" onClick={() => highlight("Movies")}>
             <a class="nav-link" href="/Movies" className={`nav-link ${hey === "Movies"?"mob":"no-mob"}`}>
-            <fav.BsCameraReels />       </a>
+            {hey==="Movies"?<fav.BsCameraReelsFill />:<fav.BsCameraReels />  }     </a>
           </li>
           <li class="nav-item" onClick={() => highlight("Recently Added")}>
             <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>
-            <fav.BsClock />    </a>
+            {hey==="Recently Added"?<fav.BsClockFill />:<fav.BsClock /> }   </a>
           </li>
           <li class="nav-item" onClick={() => highlight("My List")}>
             <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":"no-mob"}`}>
-            <fav.BsBookmark />        </a>
+            {hey === "My List"?<fav.BsBookmarkFill /> :<fav.BsBookmark /> }       </a>
           </li>
       </ul>
     </div>
