@@ -385,7 +385,7 @@ body {
     width: 85% !important;
     margin-left: 3vw !important;
     font-weight: 500 !important;
-    font-family:'Work Sans','Calibri' !important;
+    font-family:'Work Sans' !important;
   }
 
   .buttons-bottom {
@@ -459,7 +459,7 @@ body {
   line-height: 30px !important;
   text-align:justify !important;
   font-weight: 100 !important;
-  font-family: 'Work Sans','Calibri' !important;
+  font-family: 'Work Sans' !important;
 }
 
 .title-detail{
