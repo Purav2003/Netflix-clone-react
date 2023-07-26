@@ -34,7 +34,7 @@ const highlight = (e) =>{
 
 
   return <section >
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg top-nav navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <a href="/" onClick={() => highlight("Home")}><button
           className="navbar-toggler"
@@ -127,7 +127,7 @@ const highlight = (e) =>{
       <ul class="nav justify-content-around bottom-nav">
         <li class="nav-item" onClick={() => highlight("Home")}>
           <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":"no-mob"}`}>
-          <home.HiOutlineHome/>
+          <home.HiOutlineHome/><br></br><h6 className="mob-nav-link">Home</h6>
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Tv Shows")}>
