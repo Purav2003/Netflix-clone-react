@@ -504,7 +504,7 @@ grid-auto-columns: 3fr;
     font-size: 0px !important;
   }
   
-  .mobile-nav,.bottom-nav li a h6{
+  .mobile-nav,.bottom-nav li a h6,.name-link{
     width: 0px !important;
     font-size: 0px !important;
   }
