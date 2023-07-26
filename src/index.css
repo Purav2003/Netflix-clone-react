@@ -443,11 +443,19 @@ body {
     display: grid !important;
     grid-auto-columns: 3fr;
     margin-top: 5px !important;
-    column-count: 3;
     justify-content: space-around !important;
     text-align: center !important;
   }
+.name-link{
+  /* text-align: center !important; */
+  width: 0px !important;
+text-align: center !important;
+display: grid;
+justify-content: space-around !important;
+margin-left: 25px !important;
+grid-auto-columns: 3fr;
 
+}
  
   
 }
@@ -472,7 +480,7 @@ body {
 }
 
 .bottom-nav{
-  height: 50px !important;
+  height: 65px !important;
 }
 
 .bottomnav-btn{

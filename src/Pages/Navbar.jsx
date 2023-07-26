@@ -128,24 +128,27 @@ const highlight = (e) =>{
         <li class="nav-item" onClick={() => highlight("Home")}>
           <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":"no-mob"}`}>
           {hey === "Home"?<fav.BsHouseDoorFill/>:<fav.BsHouseDoor/>}
-          </a>
+          </a><h6 className={`name-link ${hey === "Home"?"mob":"no-mob"}`}>Home</h6>
         </li>
           <li class="nav-item" onClick={() => highlight("Tv Shows")}>
             <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>
             {hey==="Tv Shows"?<fav.BsTvFill />:<fav.BsTv /> }
-            </a>
+            </a><h6 className={`name-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>Tv</h6>
           </li>
           <li class="nav-item" onClick={() => highlight("Movies")}>
             <a class="nav-link" href="/Movies" className={`nav-link ${hey === "Movies"?"mob":"no-mob"}`}>
             {hey==="Movies"?<fav.BsCameraReelsFill />:<fav.BsCameraReels />  }     </a>
+            <h6 className={`name-link ${hey === "Movies"?"mob":"no-mob"}`}>Movies</h6>
           </li>
           <li class="nav-item" onClick={() => highlight("Recently Added")}>
             <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>
             {hey==="Recently Added"?<fav.BsClockFill />:<fav.BsClock /> }   </a>
+            <h6 className={`name-link ${hey === "Recently Added"?"mob":"no-mob"}`}>New</h6>
           </li>
           <li class="nav-item" onClick={() => highlight("My List")}>
             <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":"no-mob"}`}>
             {hey === "My List"?<fav.BsBookmarkFill /> :<fav.BsBookmark /> }       </a>
+            <h6 className={`name-link ${hey === "My List"?"mob":"no-mob"}`}>Saved</h6>
           </li>
       </ul>
     </div>
