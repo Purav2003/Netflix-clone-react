@@ -439,16 +439,20 @@ body {
   .mob-nav-link{
     font-size: 13px !important;
     text-align: center !important;
-    margin-left: -8px !important;
     margin-top: 2px !important;
   }
-  .bottom-nav .nav-link {
-    /* background: red !important; */
-    /* margin-left: 0px !important; */
-    padding-left: 10px !important;
-  }
+ 
   .mob-nav-link-a{
+    margin-left: -10px !important;
+  }
+  .mob-nav-link-b{
+    margin-left: -11.5px !important;
+  }
+  .mob-nav-link-c{
     margin-left: -4px !important;
+  }
+  .bottom-nav{
+    margin-left: -9px !important;
   }
 }
 
@@ -489,6 +493,8 @@ body {
   margin-top: auto !important;
   align-items: center !important;
 }
+
+
 
 .tables-list{
   display: flex !important;
