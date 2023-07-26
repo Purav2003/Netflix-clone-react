@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import netflix from "./images/netflix-avatar.png"
 import logo from "./images/netflix-logo.png"
 import logonav from "./images/net-logo.png"
@@ -29,6 +29,21 @@ const highlight = (e) =>{
     localStorage.setItem('highlights', JSON.stringify(e))
 }
 
+if(window.location.href.includes('home')){
+  highlight("Home")
+}
+if(window.location.href.includes('Tv')){
+  highlight("Tv Shows")
+}
+if(window.location.href.includes('Movies')){
+  highlight("Movies")
+}
+if(window.location.href.includes('Recently-Added')){
+  highlight("Recently Added")
+}
+if(window.location.href.includes('my-list')){
+  highlight("My List")
+}
   let hey = (localStorage.getItem('highlights'))
   hey = JSON.parse(localStorage.getItem('highlights'))
 
@@ -54,19 +69,19 @@ const highlight = (e) =>{
             />
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item" onClick={() => highlight("Home")}>
+            <li className="nav-item">
               <a href="/home" className={`nav-link ${hey === "Home"?"clicked":"not-clicked"}`}>Home</a>
             </li>
-            <li className="nav-item" onClick={() => highlight("Tv Shows")}>
+            <li className="nav-item">
               <a href="/Tv" className={`nav-link ${hey === "Tv Shows"?"clicked":"not-clicked"}`} >Tv Shows</a>
             </li>
-            <li className="nav-item" onClick={() => highlight("Movies")}>
+            <li className="nav-item">
               <a className={`nav-link ${hey === "Movies"?"clicked":"not-clicked"}`} href="/Movies">Movies</a>
             </li>
-            <li className="nav-item" onClick={() => highlight("Recently Added")}>
+            <li className="nav-item">
               <a className={`nav-link ${hey === "Recently Added"?"clicked":"not-clicked"}`} href="/Recently-Added">Recently Added</a>
             </li>
-            <li className="nav-item" onClick={() => highlight("My List")}>
+            <li className="nav-item">
               <a className={`nav-link ${hey === "My List"?"clicked":"not-clicked"}`} href="/my-list">My List</a>
             </li>
           </ul>
@@ -125,27 +140,27 @@ const highlight = (e) =>{
     <nav class="navbar">
     <div class="container-fluid">
       <ul class="nav justify-content-around bottom-nav">
-        <li class="nav-item" onClick={() => highlight("Home")}>
+        <li class="nav-item">
           <a class="nav-link" href="/home" className={`nav-link ${hey === "Home"?"mob":"no-mob"}`}>
           {hey === "Home"?<fav.BsHouseDoorFill/>:<fav.BsHouseDoor/>}
           </a><h6 className={`name-link ${hey === "Home"?"mob":"no-mob"}`}>Home</h6>
         </li>
-          <li class="nav-item" onClick={() => highlight("Tv Shows")}>
+          <li class="nav-item">
             <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>
             {hey==="Tv Shows"?<fav.BsTvFill />:<fav.BsTv /> }
             </a><h6 className={`name-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>Tv</h6>
           </li>
-          <li class="nav-item" onClick={() => highlight("Movies")}>
+          <li class="nav-item">
             <a class="nav-link" href="/Movies" className={`nav-link ${hey === "Movies"?"mob":"no-mob"}`}>
             {hey==="Movies"?<fav.BsCameraReelsFill />:<fav.BsCameraReels />  }     </a>
             <h6 className={`name-link ${hey === "Movies"?"mob":"no-mob"}`}>Movies</h6>
           </li>
-          <li class="nav-item" onClick={() => highlight("Recently Added")}>
+          <li class="nav-item">
             <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>
             {hey==="Recently Added"?<fav.BsClockFill />:<fav.BsClock /> }   </a>
             <h6 className={`name-link ${hey === "Recently Added"?"mob":"no-mob"}`}>New</h6>
           </li>
-          <li class="nav-item" onClick={() => highlight("My List")}>
+          <li class="nav-item">
             <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":"no-mob"}`}>
             {hey === "My List"?<fav.BsBookmarkFill /> :<fav.BsBookmark /> }       </a>
             <h6 className={`name-link ${hey === "My List"?"mob":"no-mob"}`}>Saved</h6>
