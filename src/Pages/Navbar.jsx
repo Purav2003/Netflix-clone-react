@@ -141,7 +141,7 @@ const highlight = (e) =>{
         </li>
         <li class="nav-item" onClick={() => highlight("Recently Added")}>
           <a class="nav-link" href="/Recently-Added" className={`nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>
-          <movie.TbClock />  <h6 className={`mob-nav-link ${hey === "Recently Added"?"mob":"no-mob"}`}>New</h6>       </a>
+          <movie.TbClock />  <h6 className={`mob-nav-link mob-nav-link-a ${hey === "Recently Added"?"mob":"no-mob"}`}>New</h6>       </a>
         </li>
         <li class="nav-item" onClick={() => highlight("My List")}>
           <a class="nav-link" href="/my-list" className={`nav-link ${hey === "My List"?"mob":"no-mob"}`}>
