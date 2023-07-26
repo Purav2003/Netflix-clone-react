@@ -44,7 +44,7 @@ function Details() {
 
     let id = localStorage.getItem('similar');
     id = JSON.parse(localStorage.getItem('similar'))
-    const [added, setAdded] = useState([])
+    let added = 0
 
     const API_URL = 'https://api.themoviedb.org/3/movie/' + id + '/similar?api_key=62ebf6fda469c1af3fe79388b1ce3912'
     const API_URL_2 = 'https://api.themoviedb.org/3/movie/' + id + '/videos?api_key=62ebf6fda469c1af3fe79388b1ce3912&language=en-US'
@@ -197,13 +197,22 @@ function Details() {
                     movies.length > 0 ? movies.map((movie) => {
                         const { poster_path, id } = movie
                         let data=net_no_image
-                        {poster_path!==null?data=IMG + poster_path:data=data}
+                        {poster_path!==null?data=IMG + poster_path:data=data
+                            const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+                            if (alreadyFavorite) {
+                                added=1
+                            }
+                          else {
+                              added=0
+                          }
+                          
+                        }
                         return <Carousel.Item>
                             <div className='card-img-top' key="id">
                                 <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
-                                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icon.AiOutlinePlus className='iconsize' ></icon.AiOutlinePlus>
-                                    <span class="tooltiptext">Add To My List</span></button>
-
+                                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icon.AiOutlinePlus className='iconsize' ></icon.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icons.FaCheck className='iconsize' ></icons.FaCheck></button>
+                }
                             </div>
 
                         </Carousel.Item>

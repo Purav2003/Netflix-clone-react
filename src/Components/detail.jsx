@@ -36,7 +36,7 @@ function Details() {
     const [selectedMovie, setSelectedMovie] = useState(getSelectedFromLocalStorage())
     const [favoritesmovie, setFavoritesmovie] = useState(getFavoritesFromLocalStorage())
     const [video, setVideo] = useState([]);
-    const [added, setAdded] = useState([])
+    let added = 0
     const navigate = useNavigate();
 
     let id = localStorage.getItem('similar');
@@ -187,12 +187,22 @@ function Details() {
                     movies.map((movie) => {
                         const { poster_path, id } = movie
                         let data=net_no_image
-                        {poster_path!==null?data=IMG + poster_path:data=data}                        
+                        {poster_path!==null?data=IMG + poster_path:data=data
+                            const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);           
+                            if (alreadyFavorite) {
+                                added=1
+                            }
+                          else {
+                              added=0
+                          }
+                          
+                        }                        
                         return <Carousel.Item>
                             <div className='card-img-top' key="id">
                                 <img width="100%" onClick={() => selectMovie(id)} src={data} className='pop-movie' />
-                                <button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icon.AiOutlinePlus className='iconsize' ></icon.AiOutlinePlus>
-                                    <span class="tooltiptext">Add To My List</span></button>
+                                {added===0?<button type="button" className="button-like btn btn-danger" onClick={() => addToFavorites(id)}><icon.AiOutlinePlus className='iconsize' ></icon.AiOutlinePlus></button>
+                :<button type="button" className="button-like btn btn-success" onClick={() => removeFromFavorites(id)}><icons.FaCheck className='iconsize' ></icons.FaCheck></button>
+                }
 
                             </div>
 
