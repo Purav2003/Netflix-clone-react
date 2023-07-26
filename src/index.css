@@ -19,7 +19,7 @@ body {
 }
 
 .top-nav .nav-link {
-  color: #fff !important;
+  /* color: #fff !important; */
   letter-spacing: 1px !important;
   font-weight: 300 !important;
   font-size: 20px !important;
@@ -226,7 +226,7 @@ body {
 
 
 .clicked {
-  color: #fff;
+  color: #fff !important;
 }
 
 .not-clicked {
@@ -454,12 +454,15 @@ body {
   .bottom-nav{
     margin-left: -9px !important;
   }
+  .bottom-nav .nav-link {
+    margin-left: 13px !important;
+    margin-top: -10px !important;
+  }
 }
 
 @media screen and (min-width:379px) and (max-width:650px) {
   .bottom-nav .nav-link {
     margin-left: 17px !important;
-    margin-top: -10px !important;
   }
 }
 
@@ -505,6 +508,11 @@ body {
     width: 0px !important;
     font-size: 0px !important;
   }
+  
+  .mobile-nav,.bottom-nav li a h6{
+    width: 0px !important;
+    font-size: 0px !important;
+  }
   .second-delete-btn{
     width: 0px !important;
     font-size: 0px !important;
@@ -515,3 +523,7 @@ body {
   }
 }
 
+
+.logonav{
+  width: 90px !important;
+}
