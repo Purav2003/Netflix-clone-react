@@ -60,13 +60,7 @@ function Details() {
             .then(data1 => {
                 setVideo(data1.results)
             })
-        const alreadyFavorite = favoritesmovie.find((movie) => movie.id === id);
-        if (alreadyFavorite) {
-            setAdded(1)
-        }
-        else {
-            setAdded(0)
-        }
+      
         const handleContextmenu = e => {
             e.preventDefault()
         }
