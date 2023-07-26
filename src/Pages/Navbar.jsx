@@ -132,7 +132,7 @@ const highlight = (e) =>{
         </li>
         <li class="nav-item" onClick={() => highlight("Tv Shows")}>
           <a class="nav-link" href="/Tv" className={`nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>
-          <fav.BsCameraReels /> <h6 className={`mob-nav-link ${hey === "Tv Shows"?"mob":"no-mob"}`}>Tv</h6>
+          <fav.BsCameraReels /> <h6 className={`mob-nav-link mob-nav-link-c ${hey === "Tv Shows"?"mob":"no-mob"}`}>Tv</h6>
           </a>
         </li>
         <li class="nav-item" onClick={() => highlight("Movies")}>
