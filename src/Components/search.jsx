@@ -166,8 +166,8 @@ const redirect = () => {
     :<div className='pop-movie-title' id="pop-movie-title">
       <br></br><br></br><br></br>
       
-      <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
-      <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}>Movies<br /></h5>
+      <h5 className='text-white m-4 ' style={{ fontFamily: 'Work Sans' }}>Your Search Result For <b style={{ 'font-size': '30px' }}>{search}</b><br /></h5>    
+      <h5 className='text-white m-4 ' style={{ fontFamily: 'Work Sans' }}>Movies<br /></h5>
       {movies.length > 0 ?
         <Carousel cols={5} rows={1} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
           {
@@ -210,10 +210,10 @@ const redirect = () => {
 
           {/* ... */}
         </Carousel>
-        : <h5 className='text-white text-center m-4 title' style={{ fontFamily: 'Netflix Sans' }}>No Results Found <br /></h5>
+        : <h5 className='text-white text-center m-4 title' style={{ fontFamily: 'Work Sans' }}>No Results Found <br /></h5>
 
       }
-      <h5 className='text-white m-4 ' style={{ fontFamily: 'Netflix Sans' }}><br></br>Tv<br /></h5>
+      <h5 className='text-white m-4 ' style={{ fontFamily: 'Work Sans' }}><br></br>Tv<br /></h5>
       {tv.length > 0 ?
         <Carousel cols={5} rows={1} scrollSnap={true} mobileBreakpoint={220} responsiveLayout={[
           {
@@ -256,7 +256,7 @@ const redirect = () => {
 
           {/* ... */}
         </Carousel>
-        : <center><h5 className='text-white m-4 title' style={{ fontFamily: 'Netflix Sans' }}>No Results Found <br /></h5></center>
+        : <center><h5 className='text-white m-4 title' style={{ fontFamily: 'Work Sans' }}>No Results Found <br /></h5></center>
 
       }
 

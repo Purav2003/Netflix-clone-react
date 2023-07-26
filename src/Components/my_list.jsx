@@ -97,7 +97,7 @@ function My_list() {
 
         <div className='title-list'>
           <div className='tables-list'>
-            <h5 className='text-white heading-list m-4 col-md-8' style={{ fontFamily: 'Netflix Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
+            <h5 className='text-white heading-list m-4 col-md-8' style={{ fontFamily: 'Work Sans', 'margin-left': '3vw' }}><br />Your Saved Tv Or Movie</h5>
             {favoritesmovie.length > 0 ?<a className='remove-all-mob' onClick={remove}>Remove All</a>:""}
             {favoritesmovie.length > 0 ?<> <button className='col-md-2 btn btn-outline-danger btn-remove-all m-4' onClick={remove}>Remove All</button></>: <h1></h1>}</div>
           {

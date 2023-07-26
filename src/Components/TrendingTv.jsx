@@ -101,7 +101,7 @@ const redirect = () => {
             <div><Toaster/></div>
 
     <div className='pop-movie-title' id="pop-movie-title">
-      <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}><br />Trending Now</h5>
+      <h5 className='text-white m-4' style={{ fontFamily: 'Work Sans' }}><br />Trending Now</h5>
       {
         loading ? <img src={gif} className="loading"></img>
 

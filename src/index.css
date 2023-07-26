@@ -1,5 +1,5 @@
 * {
-  font-family: 'Netflix Sans Light', Calibri !important;
+  font-family: 'Work Sans', Calibri !important;
 }
 
 .font {
@@ -72,8 +72,8 @@ body {
   .title-slide {
     margin-left: -18vw;
     font-weight: 500;
-    font-family: 38px !important;
-    font-family: 'Netflix Sans' !important;
+    font-size: 38px !important;
+    font-family: 'Work Sans' !important;
   }
 
   .title-slide-1 {
@@ -159,13 +159,6 @@ body {
 .navbar {
   box-shadow: none !important;
   /* background: none !important; */
-}
-
-@font-face {
-  font-family: 'Benguiat';
-  font-style: normal;
-  font-weight: bolder;
-  src: local('Benguiat'), url('benguiat_[allfont.net].woff') format('woff');
 }
 
 .nav-right {
@@ -392,7 +385,7 @@ body {
     width: 85% !important;
     margin-left: 3vw !important;
     font-weight: 500 !important;
-    font-family:calibri !important;
+    font-family:'Work Sans','Calibri' !important;
   }
 
   .buttons-bottom {
@@ -466,7 +459,7 @@ body {
   line-height: 30px !important;
   text-align:justify !important;
   font-weight: 100 !important;
-  font-family: 'Calibri' !important;
+  font-family: 'Work Sans','Calibri' !important;
 }
 
 .title-detail{

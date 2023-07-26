@@ -180,7 +180,7 @@ function Details() {
                 </div>
             })}
         <div className='pop-movie-title' >       <br></br><br></br>
-            <h5 className='text-white m-4' style={{ fontFamily: 'Netflix Sans' }}>Similar On Netflix<br /></h5>
+            <h5 className='text-white m-4' style={{ fontFamily: 'Work Sans'}}>Similar On Netflix<br /></h5>
 {movies.length>1?
             <Carousel cols={5} rows={1} mobileBreakpoint={220} responsiveLayout={[
                 {
