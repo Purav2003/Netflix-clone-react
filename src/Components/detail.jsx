@@ -147,11 +147,11 @@ function Details() {
                     <div className="col-md-12 main-detail-div" key="ID">
                         <img src={data} className='col-md-3 movie-details'></img>
                         <div className='col-md-7' style={{ 'margin-left': '3vw' }}>
-                            <h1 className='overview heading-detail' style={{ 'font-weight': '700', 'color': '#E50914', 'font-family': 'Work Sans' }}>{title}{name}</h1><br></br>
-                            <h5 className='text-white overview overview-data' style={{  }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Overview:</a> {overview}</h5><br></br>
-                            <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Work Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
-                            <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Work Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Vote:</a> {vote_average}</h5><br></br>
-                            <h5 className='text-white overview' style={{ 'lineHeight': '30px', 'textAlign': 'justify', 'font-family': 'Work Sans', 'font-weight': '100' }}><a style={{ color: '#E50914', 'font-weight': '700' }}>Popularity:</a> {popularity}</h5><br></br>
+                        <h1 className='overview heading-detail' style={{ 'font-weight': '700', 'color': '#E50914'}}>{title}{name}</h1><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Overview:</a> {overview}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Date Of Release:</a> {release_date}{first_air_date}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Vote:</a> {vote_average}</h5><br></br>
+                            <h5 className='text-white overview overview-detail'><a className='title-detail'>Popularity:</a> {popularity}</h5><br></br>
                             <div style={{ display: 'flex' }} className='buttons-bottom'>
                                 <div className='m-4 col-md-4'><button className='button-like-1 col-md-12 btn btn-outline-primary' onClick={videolink}><icons.FaPlay className='m-1'></icons.FaPlay>&nbsp;&nbsp;Watch Trailer</button></div>
                                 {added == 1 ?
