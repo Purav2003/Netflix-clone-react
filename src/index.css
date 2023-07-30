@@ -478,6 +478,10 @@ grid-auto-columns: 3fr;
   color:#E50914;
   font-weight: 700;
 }
+.title-detail:hover{
+  color:#E50914;
+  font-weight: 700;
+}
 
 .bottom-nav{
   height: 65px !important;
